@@ -12,7 +12,7 @@ As a command line argument, ``DCIPoctreeFwd`` requires an input file containing 
 
 The following is the input control file format:
 
-.. figure:: ../../images/fwd.png
+.. figure:: ../../images/fwd.PNG
         :figwidth: 75%
         :align: center
 
@@ -60,6 +60,6 @@ Example files
 
 Example of a forward modelling input file:
 
-.. figure:: ../../images/fwdexample.png
+.. figure:: ../../images/fwdexample.PNG
         :figwidth: 75%
         :align: center
