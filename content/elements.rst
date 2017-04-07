@@ -35,6 +35,8 @@ Utilities:
 
 Each of the above programs requires an input file (or files) in order to run. Before detailing the procedures for running each of the above programs, we first present information about these general input/output files.
 
+.. _fileformats:
+
 General files for DCIPoctree programs
 -------------------------------------
 
