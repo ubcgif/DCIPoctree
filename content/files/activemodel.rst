@@ -15,7 +15,7 @@ If no active cells are used in the forward modelling or inversion, the flag ``AL
 
 The following is an example of an active cells file:
 
-.. figure:: ../../images/activemodelfile.png
+.. figure:: ../../images/activemodelfile.PNG
         :figwidth: 75%
         :align: center
 
