@@ -45,7 +45,7 @@ This file contains the 3D octree mesh, for example ``octree_mesh.msh``, which de
 :math:`b_{sz}`
         Size, in each direction, of the current cell/block with indecies (i,j,k). The volume of the cell/block would be :math:`(\Delta X_{min}*b_{sz})*(\Delta Y_{min}*b_{sz})*(\Delta Z_{min}*b_{sz})`. 
 
-The mesh should be designed by considering it to consist of a core portion, representing the region of interest, and a padding zone, which ensures that the boundary conditions in the modelling are handled correctly. In the core portion, the size of the smallest cell in the mesh is controlled by the location of current/potential electrodes, the locations of the boreholes, and topography. The selection of the smallest cell for the underlying (base) mesh and the padding distance in each direction is set by the user in the input file for the ultility ``create_octree_mesh``, which is discussed in detail :ref:`here <createOctreeMeshUtility>`.
+The mesh should be designed by considering it to consist of a core portion, representing the region of interest, and a padding zone, which ensures that the boundary conditions in the modelling are handled correctly. In the core portion, the size of the smallest cell in the mesh is controlled by the location of current/potential electrodes, the locations of the boreholes, and topography. The selection of the smallest cell for the underlying (base) mesh and the padding distance in each direction is set by the user in the input file for the ultility ``create_octree_mesh``, which is discussed in detail :ref:`here <createoctreemesh>`.
 
 In the presence of surface topography, the top of the octree mesh corresponds to the highest point on the surface (see :ref:`topography file description <topofile>`).
 
