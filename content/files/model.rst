@@ -5,7 +5,7 @@ Model file
 
 This file contains the cell values of the conductivity or chargeability model. The conductivity must have values in S/m, while chargeability is often unitless. Inversion models (forward, initial, reference, and recovered) are in this format. The following is the file structure of the model file:
 
-.. figure:: ../../images/modelfile.PNG
+.. figure:: ../../images/modelfile.png
     :align: center
     :figwidth: 50%
 

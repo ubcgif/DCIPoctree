@@ -117,7 +117,7 @@ PATH
 -machinefile machinefile.txt
         The list of participating machines will be read from a machine file. This file lists the network names of the participating machines and number of processors to be allocated for the MPI job for each machine. The following is an example of a machine file:
 
-.. figure:: ../images/machine.png
+.. figure:: ../images/machine.PNG
         :figwidth: 50%
         :align: center
 

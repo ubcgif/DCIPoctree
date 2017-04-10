@@ -5,9 +5,9 @@ Tensor mesh file
 
 This file contains the 3D mesh, for example ``mesh.msh``, which defined the model region. Standard 3D mesh files have the following structure:
 
-.. figure:: ../../images/mesh3D.PNG
-    :align: center
-    :figwidth: 50%
+.. figure:: ../../images/mesh3D.png
+        :align: center
+        :figwidth: 50%
 
 :math:`NE`
         Number of cells in the East direction.
@@ -41,6 +41,6 @@ Example
 
 This example shows a mesh that consists of 26 cells in easting, 27 cells in the northing, and 23 cells in the vertical directions. The top of the mesh is located at 0 m of elevation and the southwest corner is at -350 m easting and -400 m northing. The cells in the core portion of the mesh are all 50 m :math:`\times` 50 m :math:`\times` 25 m. There are three cells in the padding zone in every direction except the top of the core mesh.
 
-.. figure:: ../../images/mesh3Dex.PNG
+.. figure:: ../../images/mesh3Dex.png
     :align: center
     :figwidth: 75%

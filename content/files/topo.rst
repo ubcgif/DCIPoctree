@@ -5,7 +5,7 @@ Topography file
 
 This file is used to define the surface topography of a mesh/model by the elevation at different locations. Lines starting with ! are comments. The topography file has the following general structure:
 
-.. figure:: ../../images/topoGIF.PNG
+.. figure:: ../../images/topoGIF.png
         :align: center
         :figwidth: 50%
 
@@ -33,7 +33,7 @@ Example:
 
 The following is an example of a topography file:
 
-.. figure:: ../../images/topoGIFex.PNG
+.. figure:: ../../images/topoGIFex.png
         :align: center
         :figwidth: 50%
 
