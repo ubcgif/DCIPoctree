@@ -8,7 +8,7 @@ DCoctreeInv
 Control parameters and input files
 ----------------------------------
 
-As a command line argument, **DCoctreeInv** requires an input file containing all parameters and files needed to carry out the inversion. The following shows the required format:
+As a command line argument, ``DCoctreeInv`` requires an input file containing all parameters and files needed to carry out the inversion. The following shows the required format:
 
 .. figure:: ../../images/dcinv.PNG
         :figwidth: 75%
