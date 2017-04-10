@@ -80,6 +80,7 @@ BOUNDS_NONE | BOUNDS CONST bl bu | BOUNDS_FILE file
 **NOTE**: A sample input file can be obtained by executing the following line in the command prompt:
 
 .. code-block:: rst
+
         DCoctreeInv -inp
 
 **NOTE**: ``DCoctreeInv`` will terminate before the specified maximum number of iterations is reached if the expected data misfit is achieved or if the model norm has plateaued. However, if the program is terminated by the maximum iteration limit, the file DC_octree_inv_log and DC_octree_inv.out should be checked to see if the desired misfit (equal to chifact times the number of data) has been reached and if the model norm is no longer changing. If neither of these conditions have been met, then the inversion should be reevaluated.
