@@ -50,16 +50,16 @@ chifact
         The chi-factor can be used to scale the data misfit tolerance. By default, a chifact=1 should be used. Increasing or decreasing the chifact is equivalent to sclaning the assigned standard deviations. An increased chifact corresponds to increased error values, which allows for a larger data misfit at convergence.
 
 tol_nl mindm iter_per_beta
-        The first parameter tol_nl defines a tolerance for the relative gradient at each :math:`beta` step: tol_nl math:`= ||g|| / ||g_o||`, where :math:`g` is the current gradient and :math:`g_o` is the gradient at the start of the current :math:`beta` step iteration. If the relative gradient is less than tol_nl, then the code exits the current :math:`beta` iteration and decreases :math:`beta` by the beta_factor.
+        The first parameter tol_nl defines a tolerance for the relative gradient at each :math:`\beta` step: tol_nl math:`= ||g|| / ||g_o||`, where :math:`g` is the current gradient and :math:`g_o` is the gradient at the start of the current :math:`\beta` step iteration. If the relative gradient is less than tol_nl, then the code exits the current :math:`\beta` iteration and decreases :math:`\beta` by the beta_factor.
 
-        mindm defines the smallest allowable model perturbation (if the model perturbation :math:`\Delta m` recovered as a result of IPCH iteration is smaller than mindm, then the current :math:`beta` iteration is terminated and :math:`beta` is reduced by beta_factor before the next beta step.
+        mindm defines the smallest allowable model perturbation (if the model perturbation :math:`\Delta m` recovered as a result of IPCH iteration is smaller than mindm, then the current :math:`\beta` iteration is terminated and :math:`\beta` is reduced by beta_factor before the next beta step.
 
         iter_per_beta sets the maximum number of times that the model can be updated within a given beta iteration.
 
 tol_ipcg max_iter_ipcg
         tol_ipcg is the tolerance to which the IPCG iteration needs to solve the model perturbation. This defines how well the system :math:`J^T J + \beta W_m^T W_m` is solved.
 
-        max_iter_ipcg defines the maximum number of IPCG iterations allowed per :math:`beta` step to solve for the model perturbation.
+        max_iter_ipcg defines the maximum number of IPCG iterations allowed per :math:`\beta` step to solve for the model perturbation.
 
 CHANGE_MREF | NOT_CHANGE_MREF
         This parameter provides the optional capability to change the reference model at each beta step. If the CHANGE_MREF option is selected, then the reference model is updated every time the regularization parameter changes and is set to the last recovered model from the previous iteration. This may result in quicker convergence. If the NOT_CHANGE_MREF option is used, then the same reference model, as originally defined in line 4 is used throughout the inversion.
@@ -93,7 +93,7 @@ inv.con
         Conductivity model from the latest inversion. The model is stored in :ref:`model format <modelfile>` and is overwritten at the end of each iteration.
 
 DC_octree_inv.txt
-        A log file in which all of the important information regarding the flow of the inversion is stored, including the starting inversion parameters, mesh information, details regarding the computation (CPU time, number of processors, etc), and information about each iteration (i.e., data misfit, model norm components, model norm, total objective function, norm gradient, and relative residuals at each :math:`beta` iteration).
+        A log file in which all of the important information regarding the flow of the inversion is stored, including the starting inversion parameters, mesh information, details regarding the computation (CPU time, number of processors, etc), and information about each iteration (i.e., data misfit, model norm components, model norm, total objective function, norm gradient, and relative residuals at each :math:`\beta` iteration).
 
 dpred.txt
         Predicted data from the recovered model in the latest iteration. The predicted data is in the :ref:`observation file format <dcipfile>`, with the final column corresponding to apparent conductivity (instead of standard deviation).
