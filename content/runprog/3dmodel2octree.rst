@@ -16,7 +16,7 @@ Control parameters and input files
 
 The input file format is as follows:
 
-.. figure:: ../../3dmodel2octree.PNG
+.. figure:: ../../images/3dmodel2octree.PNG
   :figwidth: 75%
   :align: center
   
