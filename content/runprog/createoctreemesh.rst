@@ -16,7 +16,7 @@ Control parameters and input files
 
 The following is an example of the control file format:
 
-.. figure:: ../../images/createmesh.png
+.. figure:: ../../images/createmesh.PNG
   :figwidth: 75%
   :align: center
   
