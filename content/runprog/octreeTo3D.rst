@@ -1,3 +1,5 @@
+.. _octreeTo3D:
+
 octreeTo3D
 ==========
 
