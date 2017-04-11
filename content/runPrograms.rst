@@ -143,6 +143,7 @@ Programs
         create_octree_mesh <runprog/createoctreemesh>
         refine_octree <runprog/refineoctree>
         remesh_octree_model <runprog/remeshoctreemodel>
+        octreeTo3D <runprog/octreeTo3D>
         3Dmodel2octree <runprog/3dmodel2octree>
         surface_electrodes <runprog/surfaceelectrodes>
         create_weight_file <runprog/createweightsfile>
