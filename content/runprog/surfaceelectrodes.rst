@@ -32,7 +32,7 @@ topography active cell file
   Input DC/IP observation file. If the ONLY_LOC option is specified, a locations file is required instead of an observation file.
 
 output data file
-  Desired filename for the generated observatios/locations file, in which the electrodes have been draped onto the topographic surface.
+  Desired filename for the generated observations/locations file, in which the electrodes have been draped onto the topographic surface.
 
 Output files
 ------------
@@ -40,4 +40,4 @@ Output files
 output data file
   Observations/locations file in LOC_XYZ format, using the filename specified in the input file. The electrode have been draped onto the topographic surface.
   
-**NOTE**: If a LOC_XYZ observations or locations file is specified in the input control file, electrodes above the surface will be draped to the surface, while electrode locations below the surface will remain unchanged.
+.. note:: If a LOC_XYZ observations or locations file is specified in the input control file, electrodes above the surface will be draped to the surface, while electrode locations below the surface will remain unchanged.
