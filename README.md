@@ -1,2 +1,2 @@
-# mag3d
-MAG3D documentation
+# dcip octree
+DCIPoctree documentation
