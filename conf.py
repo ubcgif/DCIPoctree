@@ -34,7 +34,7 @@ sys.path.append(os.path.abspath('./_ext'))
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
-    'sphinxcontrib.bibtex'
+    'sphinxcontrib.bibtex',
     'edit_on_github',
     'purpose',
     'example',
