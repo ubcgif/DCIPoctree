@@ -18,7 +18,7 @@ Among the newly implemented modifications to the beta version of the code, the m
 
 Boundary constraint is achieved by imposing restrictions on each cell in the mesh to have a model value of :math:`\mathbf{m}`, such that :math:`\mathbf{m}^l \leq \mathbf{m} \leq \mathbf{m}^u`, where the bounds :math:`\mathbf{m}^l` and :math:`\mathbf{m}^u`, the lower and upper bound, respectively, are prescribed by the user. The conjugate-gradient solution implements this through projected gradient techniques.
 
-**Warning**: This code is not meant to run inversions with underground air cells (e.g underground mine surveys)
+.. important:: This code is not meant to run inversions with underground air cells (e.g underground mine surveys)
 
 Array types and Earth models
 ----------------------------
