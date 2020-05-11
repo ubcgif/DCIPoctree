@@ -1,5 +1,7 @@
 .. _overview:
 
+.. warning:: This manual contains the documentation for DCIP octree package releases beginning on 2020-05-08. This version of the package is compatible with GIFtools v2.31 and later. If using an earlier version of GIFtools, please see the `2014-10 release manual <https://dcipoctree.readthedocs.io/en/2014-10/>`__ .
+
 DCIPoctree package overview
 ===========================
 
@@ -12,7 +14,7 @@ Version 1.0 of the code is a newly developed algorithm, which has been developed
 
 In addition to the new approach in discretization, DCIPoctree has been released with implemented parallelization using OpenMP, optimized for usage on multi-core computers with hyperthreading functionality. For parallel usage on local networks and commodity clusters, DCIPoctree has been compiled with Message Pass Interface (MPI) using the `MUMPS direct solver <http://graal.ens-lyon.fr/MUMPS/>`__. 
 
-The latest version (201402) uses pardiso and does not rely on MPI. These codes have the suffix "pardiso" (i.e., DCoctreeInv_pardiso).
+The latest version (2020-05-08) uses pardiso and does not rely on MPI.
 
 Among the newly implemented modifications to the beta version of the code, the most significant are the capability to invert borehole (subsurface) data, to drape the 2D (XY) survey geometries over 3D topography, the added ability to incorporate a-priori electrical resistivity or chargeability information by utilizing a 3D weighting function (which can be designed to emphasize or suppress some known spatial or directional features of the recovered model or otherwise, to force desired model conditions via property bound constraints), and interface weighting which can be used to define sharp contacts within the reference model (i.e. faults, unconformities, etc.) and laterally smoothing near surface variations in the recovered model.  
 
@@ -34,23 +36,29 @@ DCIPoctree considers the subsurface in terms of a mesh of rectangular cells. Num
 
 When working with octree meshes, the underlying (base) mesh is defined as a regular 3D discretization with number of cells in each dimension equal to some power of 2. This underlying mesh is the finest possible discretization, which can be used in the inversion at any later stage, without using remeshing procedures. The idea is that if recovered model properties change slowly over a certain volume, then the cells bounded by this volume can be merged into a single cell without losing any accuracy in modelling, and only refined when the model begins changing. The spatial variability of model properties is a measure of the mesh refinement.
 
-Program library contents
-------------------------
+Program Library
+---------------
 
-The package that can be licensed includes the following executable programs for performing forward modelling, and inversion of 3D DC resistivity or induced polarization (IP) surveys. Additional functionality is included in supplementary utility programs, which can be used to create and refine octree meshes, calculate octree cell centres, remesh octree models, create weighting files, and convert octree model to non-octree model or vise-versa on both: Windows and Linux platforms. The package contains the following programs:
+The main executable programs within the DCIP octree program library are:
 
-- ``DCIPoctreeFwd``: Forward model conductivity/chargeability models to calculate data.
-- ``DCoctreeInv``: Invert 3D DC data to develop a conductivity model.
-- ``IPoctreeInv``: Invert 3D IP data to develop a chargeablility model.
-- ``create_octree_mesh``: Create an octree mesh file from electrode locations and optionally topography.
-- ``3DModel2Octree``: Convert from a 3D UBC-GIF model to an octree mesh/model.
-- ``octreeTo3D``: Convert from an octree model to a standard 3D UBC-GIF model.
-- ``refine_octree``: Make an octree mesh finer based on the values of the input model.
-- ``remesh_octree_model``: Convert a model from one octree mesh to another.
-- ``surface_electrodes``: Place the electrodes on the topographic surface.
-- ``octree_cell_centre``: Read in an octree mesh, and output a 3-columns file of cell centres.
-- ``interface_weights``: Create a weight file for the octree cell interfaces.
-- ``create_weight_file``: Create an octree cell weighting file.
+    - **create_octree_mesh_dcip:** creates an OcTree mesh based on the survey geometry
+    - **dcipoctree_fwd:** used to forward model both DC and IP data
+    - **dcoctree_inv:** inverts DC data to recover a conductivity model
+    - **ipoctree_inv:** inverts IP data to recover a chargeabitiliy model
+
+The following Octree utility programs may also be helpful:
+
+    - **blk3cellOct:** creates conductivity models on an OcTree mesh
+    - **create_weight_file:** creates the weighting on each cell in the model
+    - **interface_weights:** creates weights on the faces of cells
+
+
+Licensing
+---------
+
+Licensing for commercial use is managed by distributors, not by the UBC-GIF research group.
+Details are in the `Licensing policy document <http://gif.eos.ubc.ca/software/licensing>`__.
+
 
 Installing
 ----------

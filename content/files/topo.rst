@@ -1,4 +1,4 @@
-.. _topofile:
+.. _topoFile:
 
 Topography file
 ===============

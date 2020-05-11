@@ -1,10 +1,7 @@
-.. _dcipfile:
+.. _surveyFile:
 
-DCIPoctree locations and observations files
-===========================================
-
-Locations file
---------------
+Survey File
+===========
 
 This file is used to specify current and potential electrode locations required for the forward modelling of DC/IP data. The locations file has the following structure:
 

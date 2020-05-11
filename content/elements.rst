@@ -1,55 +1,57 @@
 .. _elements:
 
-Elements of the program DCIPoctree
-==================================
+.. warning:: This manual contains the documentation for DCIP octree package releases beginning on 2020-05-08. This version of the package is compatible with GIFtools v2.31 and later. If using an earlier version of GIFtools, please see the `2014-10 release manual <https://dcipoctree.readthedocs.io/en/2014-10/>`__ .
 
-The DCIPoctree library consists of three core programs and nine utilities.
+Elements of the DCIP octree package
+===================================
 
-Core Programs:
+This section provides a brief description of each program in the DCIP octree package. In addition, we describe the file formats for all input and supporting files used by the coding library.
 
-- ``DCIPoctreeFwd``: Forward model conductivity/chargeability models to calculate data
+Program Library
+---------------
 
-- ``DCoctreeInv``: Invert 3D DC data to develop a conductivity model
+The main executable programs within the DCIP octree program library are:
 
-- ``IPoctreeInv``: Invert 3D IP data to develop a chargeablility model
+    - **create_octree_mesh_dcip:** creates an OcTree mesh based on the survey geometry
+    - **dcipoctree_fwd:** used to forward model both DC and IP data
+    - **dcoctree_inv:** inverts DC data to recover a conductivity model
+    - **ipoctree_inv:** inverts IP data to recover a chargeabitiliy model
 
-Utilities:
+The following Octree utility programs may also be helpful:
 
-- ``create_octree_mesh``: Create an octree mesh file from electrode locations and optionally topography
+    - **blk3cellOct:** creates conductivity models on an OcTree mesh
+    - **create_weight_file:** creates the weighting on each cell in the model
+    - **interface_weights:** creates weights on the faces of cells
 
-- ``3DModel2Octree``: Convert from a 3D UBC-GIF mesh/model to an octree mesh/model
 
-- ``octreeTo3D``: Convert from an octree mesh/model to a standard 3D UBC-GIF mesh/model
+Main Input Files
+----------------
 
-- ``refine_octree``: Make an octree mesh finer based on the values of the input model
+Here, we describe the main input files for executables contained with the DCIP octree coding package.
 
-- ``remesh_octree_model``: Convert a model from one octree mesh to another
+.. tOcTree::
+    :maxdepth: 2
 
-- ``surface_electrodes``: Place the electrodes on the topographic surface
+    Create OcTree mesh <inputfiles/createOcTree>
+    Create OcTree model <inputfiles/createModel>
+    Forward modeling <inputfiles/forward>
+    DC Inversion <inputfiles/dcinversion>
+    IP Inversion <inputfiles/ipinversion>
 
-- ``octree_cell_centre``: Read in an octree mesh, and output a 3-columns file of cell centres
 
-- ``interface_weights``: Create a weight file for the octree cell interfaces
+Supporting Files
+----------------
 
-- ``create_weight_file``: Create an octree cell weighting file
-
-Each of the above programs requires an input file (or files) in order to run. Before detailing the procedures for running each of the above programs, we first present information about these general input/output files.
-
-.. _fileformats:
-
-General files for DCIPoctree programs
--------------------------------------
-
-**Input** files can have any user-defined name, while **output** files have restricted file names. Generall speaking, the filename extensions are not important. While the user can provide different file extensions for each file type (i.e. ``*.msh`` for mesh files, ``*.con`` for conductivity models), some users prefer to use the ``*.txt`` filename convention so that files are more easily read and edited in the Windows environment. There are ten general file types which are used by the different codes in DCIPoctree library:
+Here, we describe the formats of supporting files used to run DCIP octree executable files. The input files for each executable program are described in the :ref:`running the programs<running>` section.
 
 .. toctree::
-        :maxdepth: 1
+    :maxdepth: 1
 
-        Octree mesh <files/octreemeshfile>
-        Tensor mesh <files/tensormeshfile>
-        Topography <files/topo>
-        Observation/Location <files/dcipfile>
-        Model <files/model>
-        Weighting <files/weight>
-        Bounds <files/bounds>
-        Active model <files/activemodel>
+    Survey File <files/surveyFile>
+    Predicted Data File <files/preFile>
+    Observations File <files/obsFile>
+    Topography File <files/topoFile>
+    OcTree Mesh File <files/octree_mesh>
+    Model File <files/model>
+    Model and Face Weights Files <files/weights>
+    Bounds File <files/bounds>
