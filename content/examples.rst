@@ -1,19 +1,21 @@
 .. _examples:
 
+.. important:: The 2014-10 release is compatible with GIFtools v2.30 and earlier. This version of the DCIPoctree package will not be maintained. For documentation of the latest version, see `latest DCIP octree manual <https://dcipoctree.readthedocs.io/en/latest/>`__ .
+
 Example using five prisms
 =========================
 
 The example model is comprised of five anomalous rectangular prisms embedded in a uniform halfspace. There are three surface prisms simulating near-surface distortions, and two buried prisms simulating deeper targets, as shown in the figure below.
 
 .. figure:: ../images/example/5prisms.png
-	:align: center
-	:figwidth: 50%
+    :align: center
+    :figwidth: 50%
 
 The five blocks are assigned conductivity and chargeability values, which are given in the table below.
 
 .. figure:: ../images/example/table1.PNG
-	:align: center
-	:figwidth: 75%
+    :align: center
+    :figwidth: 75%
 
 DC resistivity and IP data are forward modelled for both surface and cross-borehole arrays using the ``DCIPoctreeFwd`` code. Three different electrode configurations were used for both DC and IP data types to show the benefits of a joint inversion using both surface and borehole data. Details of the three surveys are as follows:
 
@@ -22,8 +24,8 @@ DC resistivity and IP data are forward modelled for both surface and cross-boreh
 2. Borehole dataset: Pole-dipole arrays located within 4 boreholes, whose locations are specified in the table below. The data were simulated using a borehole array configuration in which the current electrode is moved down each of the 4 boreholes with 25 m steps to the depth of 350 m. This results in a total of 51 current electrode locations. For each of the current electrode locations, the potential electrode array, with a 50 m spread, was placed in each of the remaining three boreholes and moved down to a depth of 350 m at 25 m intervals, resulting in 1530 forward modelled observations.
 
 .. figure:: ../images/example/table2.PNG
-	:align: center
-	:figwidth: 75%
+    :align: center
+    :figwidth: 75%
 
 3. Combined surface and borehole dataset: A combination of the above pole-dipole surface and borehole arrays, resulting in 260 current electrodes and 2619 total forward modelled observations.
 
@@ -32,7 +34,6 @@ Prior to inversion, 5% Gaussian noise was added to the forward modelled data, an
 The following pages describe the constant inversion parameters used and then the inversion of each dataset.
 
 .. toctree::
-        :numbered:
         :maxdepth: 2
 
         Inversion parameters <exe5prism/param>

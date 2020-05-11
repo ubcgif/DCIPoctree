@@ -1,4 +1,4 @@
-__param::
+.. _param:
 
 Inversion parameters
 --------------------
