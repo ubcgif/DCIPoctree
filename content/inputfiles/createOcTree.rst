@@ -8,25 +8,23 @@ The :ref:`OcTree mesh<octreeFile>` used in the DCIP octree code are created usin
 
 .. tabularcolumns:: |C|C|C|
 
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| Line # | Parameter                                                 | Descriptions                                                    |
-+========+===========================================================+=================================================================+
-| 1      |:ref:`dx dy dz<dcip_input_octreeln1>`                      | min. cell widths in x, y and z for base mesh                    |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 2      |:ref:`x_pad y_pad down_pad up_pad<dcip_input_octreeln2>`   | sets the thickness of padding in x, y, down and up directions   |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 3      |:ref:`h1 h2 h3<dcip_input_octreeln3>`                      | sets cell sizes within core mesh region                         |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 4      |:ref:`n1 n2 n3<dcip_input_octreeln4>`                      | sets thickness of cells of finest discretization near receivers |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 5      |:ref:`locFile<dcip_input_octreeln5>`                       | the file containing transmitters and observation locations      |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 6      |:ref:`topoFile<dcip_input_octreeln6>`                      | sets topography                                                 |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 7      |:ref:`shift_data<dcip_input_octreeln7>`                    | *description needed. leave as NOT_SHIFT_DATA*                   |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
-| 8      |:ref:`interp_topo<dcip_input_octreeln8>`                   | sets level of discretization for surface topography             |
-+--------+-----------------------------------------------------------+-----------------------------------------------------------------+
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| Line # | Parameter                                                      | Descriptions                                                    |
++========+================================================================+=================================================================+
+| 1      |:ref:`dx dy dz<dcip_input_octreeln1>`                           | min. cell widths in x, y and z for base mesh                    |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 2      |:ref:`x_pad y_pad down_pad up_pad<dcip_input_octreeln2>`        | sets the thickness of padding in x, y, down and up directions   |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 3      |:ref:`depth_core depth_core2 depth_core3<dcip_input_octreeln3>` | sets cell sizes within core mesh region                         |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 4      |:ref:`n1 n2 n3<dcip_input_octreeln4>`                           | sets thickness of cells of finest discretization near receivers |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 5      |:ref:`locFile<dcip_input_octreeln5>`                            | the file containing electrode locations                         |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 6      |:ref:`topoFile<dcip_input_octreeln6>`                           | sets topography                                                 |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
+| 8      |:ref:`interp_topo<dcip_input_octreeln7>`                        | sets level of discretization for surface topography             |
++--------+----------------------------------------------------------------+-----------------------------------------------------------------+
 
 
 .. figure:: images/create_octree_input.png
@@ -50,7 +48,7 @@ Line Descriptions
 
 .. _dcip_input_octreeln3:
 
-    - **h1 h2 h3:** Sets cell sizes within the core mesh region. Up to a depth of *h1* from surface topography and within a horizontal distance of *h1* from any receiver, the smallest cell size is used (set by *dx, dy, dz*). For the following *h2* metres, the cell widths are doubled. For the following *h3* metres, the cell widths are doubled again. Outside a depth and horizontal distance of *h1+h2+h3*, the cells widths increase by a factor of 2 for every additional layer (see the figure below).
+    - **depth_core depth_core2 depth_core3:** Sets cell sizes within the core mesh region. Up to a depth of *core_depth* from surface topography and within a horizontal distance of *core_depth* from any electrode, the smallest cell size is used (set by *dx, dy, dz*). Then up to a distance of *core_depth2* , the cell widths are 2 times the minimum. The up to a distance of *core_depth3* , the cell widths are again increased by a factor of 2. Outside a depth and horizontal distance of *core_depth3*, the cells widths increase by a factor of 2 for every additional layer (see the figure below).
 
 .. _dcip_input_octreeln4:
 
@@ -58,30 +56,23 @@ Line Descriptions
 
 .. _dcip_input_octreeln5:
 
-    - **locFile:** Contains the locations of the receivers. The user may either enter the file path to an :ref:`observed data<obsFile>` file, or the flag "ONLY_LOC" followed by the path to a :ref:`data points<surveyFile>` file. 
+    - **locFile:** This line defines the electrode locations. The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*.
+
+        - *ONLY_LOC:* If you are using a :ref:`survey file <surveyFile>`__ , then you must begin this line with the *ONLY_LOC* flag. If you are using a :ref:`observations file <obsFile>`__ , this first flag is not required.
+        - *LOC_XY|LOC_XYZ:* If the electrodes are all on the Earth's surface, use the flag *LOC_XY*. If the survey file contains any borehole measurements, use the flag *LOC_XYZ*.
+        - *filepath:* This is the filepath to the survey/observations file. 
+    
 
 .. _dcip_input_octreeln6:
 
-    - **topoFile:** If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format. In the case of flat topography, the user instead enter "TOPO_CONST", followed by a space, then the elevation of the surface topography; for example "TOPO_CONST 125.5".
+    - **topoFile:** If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format. In the case of flat topography, the user instead enter "TOPO_CONST", followed by a space, then the elevation of the surface topography; for example "TOPO_CONST 125.5". For a flat topography at 0, use the flag "NO_TOPO".
+
 
 .. _dcip_input_octreeln7:
 
-    - **shift_data:** If the flag "NOT_SHIFT_DATA" is used, then it is possible for transmitters and receiver to lie below the surface topography. If "SHIFT_DATA *filename*" is used, then a new survey file is output in which the transmitter and receivers have been projected to the surface topography.
-
-.. _dcip_input_octreeln8:
-
-    - **interp_topo:** Set as either "APPROXTOPO" or "GOODTOPO". If "APPROXTOPO" is chosen, there will only be fine cells close to the survey, whereas "GOODTOPO" will place fine cells everywhere on the surface.
+    - **polygon edge width:** Here we define the horizontal extent of the core inversion mesh region. The user may do this by providing the path to a file containing the points for a polygon. The user may also set the horizontal extent of the core mesh region based on transmitter and receiver locations. The set of transmitter and receiver locations can be used to create a convex hull. For this option the user types "*MAKE_POLYGON d*", where *d* is the distance outside the convex hull the user want to extend to core mesh region.
 
 
-Approximate versus Good Topography
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Below, we see the difference between entering "APPROXTOPO" (top) and "GOODTOPO" (bottom) into :ref:`interp_top<dcip_input_octreeln7>`. For "APPROXTOPO", the mesh ultimately contains a smaller total number of cells, as discretization near the surface is coarser. For "GOODTOPO", the mesh contains a larger total number of cells because the surface topography is discretized to the finest cell size.
-
-
-.. figure:: images/create_octree_topo.png
-     :align: center
-     :width: 500
 
 
 
