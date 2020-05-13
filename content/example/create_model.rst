@@ -12,7 +12,7 @@ Here, the code **blk3cellOct.exe** is used to create both a conductivity and an 
 
 **Conductivity model:** Here is the input file for the conductivity model (**blk3cellOct_con.inp**)
 
-.. figure:: ../inputfiles/images/create_blk3cellOct_con_input.png
+.. figure:: ../inputfiles/images/create_blk3cellOct_input_con.png
      :align: center
      :width: 700
 
@@ -27,7 +27,7 @@ The resulting Octree model shows a more conductive block (:math:`\sigma` = 0.1 S
 
 **Chargeability model:** Here is the input file for the chargeability model (**blk3cellOct_chg.inp**)
 
-.. figure:: ../inputfiles/images/create_blk3cellOct_chg_input.png
+.. figure:: ../inputfiles/images/create_blk3cellOct_input_chg.png
      :align: center
      :width: 700
 
