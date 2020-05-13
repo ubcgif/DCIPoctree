@@ -1,0 +1,6 @@
+octree_mesh.txt                        ! octree_mesh
+true_model.con                         ! output model name
+0.01                                   ! background value
+2                                      ! number of blocks
+-540 -240 -600 600 -150 -450 0.1       ! x1 x2 y1 y2 z1 z2 val
+240 540 -600 600 -150 -450 0.001       ! x1 x2 y1 y2 z1 z2 val

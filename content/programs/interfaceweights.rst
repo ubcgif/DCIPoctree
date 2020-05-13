@@ -1,4 +1,4 @@
-.. _interfaceweights:
+.. _dcip_interface_weights:
 
 interface_weights
 =================

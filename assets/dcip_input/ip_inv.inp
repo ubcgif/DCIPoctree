@@ -1,0 +1,18 @@
+octree_mesh.txt             ! octree mesh
+LOC_XYZ data.ip             ! LOC_XY|LOC_XYZ filename
+VALUE 1e-6                  ! initial model
+VALUE 0                     ! reference model
+true_model.con              ! background conductivity model
+active_cells_topo.txt       ! active topography cells | ALL_ACTIVE
+active_cells_topo.txt       ! active model cells | ALL_ACTIVE
+NO_WEIGHT                   ! cell weights | NO_WEIGHT
+interface_weights.txt       ! interface weights | NO_FACE_WEIGHT
+NO_WEIGHT                   ! additional smallness weights | NO_WEIGHT
+DEFAULT                     ! DEFAULT | beta_max beta_min beta_factor
+1e-4 1 1 1                  ! as ax ay az
+1                           ! chi factor
+1.e-2  1.e-3  2             ! tol_nl mindm iter_per_beta
+1.e-2  20                   ! tol_ipcg max_iter_ipcg
+CHANGE_MREF                 ! CHANGE_MREF | NO_CHANGE_MREF
+SMOOTH_MOD_DIF              ! SMOOTH_MOD | SMOOTH_MOD_DIF
+BOUNDS_CONST 0 1            ! BOUNDS_NONE | BOUNDS_CONST bl bu | BOUNDS_FILE filename

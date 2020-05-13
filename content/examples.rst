@@ -1,4 +1,4 @@
-.. warning:: This manual contains the documentation for DCIP octree package releases beginning on 2020-05-08. This version of the package is compatible with GIFtools v2.31 and later. If using an earlier version of GIFtools, please see the `2014-10 release manual <https://dcipoctree.readthedocs.io/en/2014-10/>`__ .
+.. warning:: This manual contains the documentation for DCIP octree package releases **beginning on 2020-05-08**. This version of the package is compatible with GIFtools v2.31 and later. If using an earlier version of GIFtools, please see the `2014-10 release manual <https://dcipoctree.readthedocs.io/en/2014-10/>`__ .
 
 .. _examples:
 
