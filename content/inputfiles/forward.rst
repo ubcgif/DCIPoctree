@@ -45,7 +45,7 @@ Line Descriptions
 
 .. _dcip_input_fwd_ln2:
 
-    - **OcTree Mesh:** file path to the :ref:`OcTree mesh file <octreeFile>`__
+    - **OcTree Mesh:** file path to the :ref:`OcTree mesh file <octreeFile>`
 
 .. _dcip_input_fwd_ln3:
 
@@ -56,11 +56,11 @@ Line Descriptions
 
 .. _dcip_input_fwd_ln4:
 
-    - **Conductivity Model:** file path to the :ref:`conductivity model <modelFile>`__
+    - **Conductivity Model:** file path to the :ref:`conductivity model <modelFile>`
 
 .. _dcip_input_fwd_ln5:
 
-    - **Chargeability Model:** file path to the :ref:`chargeability model <modelFile>`__
+    - **Chargeability Model:** file path to the :ref:`chargeability model <modelFile>`
 
 .. _dcip_input_fwd_ln6:
 

@@ -29,7 +29,7 @@ Before running the executable, the number of threads used to carry out all simul
 Units
 ^^^^^
 
-	- **DC data:** measured voltage in Volts (V)
+	- **DC data:** measured voltage normalized by the transmitter current (V/A)
     - **IP data:** 
     - **Conductivity model:** S/m
     - **Chargeability model:** intinsic chargeability - unitless from [0,1) 

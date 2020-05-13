@@ -7,8 +7,8 @@ Elements of the DCIP octree package
 
 This section provides a brief description of each program in the DCIP octree package. In addition, we describe the file formats for all input and supporting files used by the coding library.
 
-Program Library
----------------
+Executables
+-----------
 
 The main executable programs within the DCIP octree program library are:
 

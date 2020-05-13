@@ -23,7 +23,7 @@ The :ref:`OcTree mesh<octreeFile>` used in the DCIP octree code are created usin
 +--------+----------------------------------------------------------------+-----------------------------------------------------------------+
 | 6      |:ref:`topoFile<dcip_input_octreeln6>`                           | sets topography                                                 |
 +--------+----------------------------------------------------------------+-----------------------------------------------------------------+
-| 8      |:ref:`interp_topo<dcip_input_octreeln7>`                        | sets level of discretization for surface topography             |
+| 7      |:ref:`interp_topo<dcip_input_octreeln7>`                        | sets level of discretization for surface topography             |
 +--------+----------------------------------------------------------------+-----------------------------------------------------------------+
 
 
