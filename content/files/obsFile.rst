@@ -46,14 +46,18 @@ Example 1: Dipole-Dipole Surface Data
 
 For electrodes defined only on the surface, the vertical location is determined by the topography. As a result, columns for the vertical position of each electrode are not required. Below, we see the format for DC and IP observed data files. In this case, there are two sources, each with a different number of receivers.
 
-**data_dc.txt:**
+**Observed Surface DC Data**
 
-**INSERT FIGURE**
+.. figure:: images/dobs_dipole_dipole_XY_dc.PNG
+    :align: center
+    :figwidth: 75%
 
 
-**data_ip.txt:**
+**Observed Surface IP Data**
 
-**INSERT_FIGURE**
+.. figure:: images/dobs_dipole_dipole_XY_ip.PNG
+    :align: center
+    :figwidth: 75%
 
 
 Example 2: Pole-Dipole Data with General Format
@@ -61,14 +65,18 @@ Example 2: Pole-Dipole Data with General Format
 
 For the general data format (surface and/or borehole), the vertical locations of the electrodes are defined. Below, we see the format for DC and IP observed data files. Since the sources are pole sources, we see that the locations of the A and B electrodes are identical. If the receivers were poles, the M and N locations of corresponding M and N electrodes would be identical.
 
-**data_dc.txt:**
+**General Format Observed DC Data**
 
-**INSERT FIGURE**
+.. figure:: images/dobs_pole_dipole_XYZ_dc.PNG
+    :align: center
+    :figwidth: 95%
 
 
-**data_ip.txt:**
+**General Format Observed IP Data**
 
-**INSERT_FIGURE**
+.. figure:: images/dobs_pole_dipole_XYZ_ip.PNG
+    :align: center
+    :figwidth: 95%
 
 
 

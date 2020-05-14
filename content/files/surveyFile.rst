@@ -42,15 +42,19 @@ Example 1: Dipole-Dipole Surface Data
 
 For electrodes defined only on the surface, the vertical location is determined by the topography. As a result, columns for the vertical position of each electrode are not required. Below, we see the format for the survey file. In this case, there are two sources, each with a different number of receivers.
 
-**INSERT FIGURE**
+.. figure:: images/survey_dipole_dipole_XY.PNG
+    :align: center
+    :figwidth: 75%
+
 
 Example 2: Pole-Dipole Data with General Format
 -----------------------------------------------
 
 For the general data format (surface and/or borehole), the vertical locations of the electrodes are defined. Below, we see the format for the surface file. Since the sources are pole sources, we see that the locations of the A and B electrodes are identical. If the receivers were poles, the M and N locations of corresponding M and N electrodes would be identical.
 
-
-**INSERT_FIGURE**
+.. figure:: images/survey_dipole_dipole_XYZ.PNG
+    :align: center
+    :figwidth: 95%
 
 
 
