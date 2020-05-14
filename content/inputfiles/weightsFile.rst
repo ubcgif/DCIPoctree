@@ -72,21 +72,21 @@ The parameters used to create interface weights are defined in the input file. T
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
 | Line # | Parameter                                               | Description                                                                          |
 +========+=========================================================+======================================================================================+
-| 1      | :ref:`OcTree Mesh<dcip_face_weight_ln1>`                 | path to octree mesh                                                                  |
+| 1      | :ref:`OcTree Mesh<dcip_face_weight_ln1>`                | path to octree mesh                                                                  |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 2      | :ref:`Active Cells<dcip_face_weight_ln2>`                | path to active cells model                                                           |
+| 2      | :ref:`Active Cells<dcip_face_weight_ln2>`               | path to active cells model                                                           |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 3      | :ref:`Model<dcip_face_weight_ln3>`                       | path to a reference conductivity model                                               |
+| 3      | :ref:`Model<dcip_face_weight_ln3>`                      | path to a reference conductivity model                                               |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 4      | :ref:`Mapping Type<dcip_face_weight_ln4>`                | set as log or linear mapping                                                         |
+| 4      | :ref:`Mapping Type<dcip_face_weight_ln4>`               | set as log or linear mapping                                                         |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 5      | :ref:`Gradient Tolerance<dcip_face_weight_ln5>`          | set threshold for largest gradients preserved in recovered model                     |
+| 5      | :ref:`Gradient Tolerance<dcip_face_weight_ln5>`         | set threshold for largest gradients preserved in recovered model                     |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 6      | :ref:`# Surface Layers<dcip_face_weight_ln6>`            | set number of cells below surface in which weighting horizontal smoothing is applied |
+| 6      | :ref:`# Surface Layers<dcip_face_weight_ln6>`           | set number of cells below surface in which weighting horizontal smoothing is applied |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 7      | :ref:`Horizontal Surface Weights<dcip_face_weight_ln7>`  | sets the weighting for horizontal smoothing for each layer                           |
+| 7      | :ref:`Horizontal Surface Weights<dcip_face_weight_ln7>` | sets the weighting for horizontal smoothing for each layer                           |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
-| 8      | :ref:`Output Name<dcip_face_weight_ln8>`                 | name for output face weighting file                                                  |
+| 8      | :ref:`Output Name<dcip_face_weight_ln8>`                | name for output face weighting file                                                  |
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
 
 

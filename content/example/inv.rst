@@ -6,11 +6,11 @@ Inversion
 Here, the codes **dcoctree_inv.exe** and **ipoctree_inv.exe** are used to recover conductivity and chargeability models, respectively. Because this is a simple example, we assigned a uncertainties of 1e-8 V + 1% to all DC data and uncertainties of 0.001 + 1% to all IP data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion. Before running this example, you may want to do the following:
 
 	- `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example.zip>`__ (if not done already)
-	- :ref:`Learn how to run code from command line <e3d_inv>`
-	- :ref:`Learn the format of the input file <e3d_input_inv>`
+	- :ref:`Learn how to run code from command line <dcip_dcinv>`
+	- :ref:`Learn the format of the input file <dcip_input_dcinv>`
 
 
- the input file **e3dinv.inp** (:ref:`see format <e3d_input_inv>`) are used to invert secondary field Hz data. FEM data were created in the example ":ref:`forward modeling<example_fwd>`". 
+ the input file **dcipinv.inp** (:ref:`see format <dcip_input_dcinv>`) are used to invert secondary field Hz data. FEM data were created in the example ":ref:`forward modeling<example_fwd>`". 
 
 
 DC Inversion

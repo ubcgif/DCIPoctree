@@ -10,11 +10,11 @@ Running the Program
 
 To run the executable, open a command window and type the following:
 
-.. figure:: images/run_dcipinv.png
+.. figure:: images/run_ipinv.png
      :align: center
      :width: 700
 
-Essentially you are calling the path to the executable followed by the path to the :ref:`input file <dcip_input_ipinv>`__ .
+Essentially you are calling the path to the executable followed by the path to the :ref:`input file <dcip_input_ipinv>` .
 
 
 Units

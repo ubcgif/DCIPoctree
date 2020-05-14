@@ -47,7 +47,7 @@ The inverse problem is solved using the executable program **dcoctree_inv.exe**.
 
 
 
-.. figure:: images/create_inv_input.png
+.. figure:: images/create_dc_inv_input.png
      :align: center
      :width: 700
 
@@ -139,5 +139,5 @@ Line Descriptions
 
         - Enter the flag "BOUNDS_NONE" if the inversion is unbounded, or if there is no a-prior information about the subsurface model
         - Enter "BOUNDS_CONST" and enter the values of the minimum and maximum model conductivity; example "BOUNDS_CONST 1E-6 0.1"
-        - Enter "BOUNDS_FILE" followed by the path to a :ref:`bounds file <boundsFile>`__
+        - Enter "BOUNDS_FILE" followed by the path to a :ref:`bounds file <boundsFile>`
 

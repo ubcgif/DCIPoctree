@@ -10,11 +10,11 @@ Running the Program
 
 To run the executable, open a command window and type the following:
 
-.. figure:: images/run_dcipinv.png
+.. figure:: images/run_fwd.png
      :align: center
      :width: 700
 
-Essentially you are calling the path to the executable followed by the path to the :ref:`input file <dcip_input_fwd>`__ .
+Essentially you are calling the path to the executable followed by the path to the :ref:`input file <dcip_input_fwd>` .
 
 Setting Number of Threads with Open MPI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -29,7 +29,7 @@ Before running the executable, the number of threads used to carry out all simul
 Units
 ^^^^^
 
-	- **DC data:** measured voltage normalized by the transmitter current (V/A)
+    - **DC data:** measured voltage normalized by the transmitter current (V/A)
     - **IP data:** 
     - **Conductivity model:** S/m
     - **Chargeability model:** intinsic chargeability - unitless from [0,1) 
@@ -41,13 +41,13 @@ Output Files
 
 The program **dcipoctree_fwd.exe** creates the following output files:
 
-	- **data_dc.txt:** The DC potential data
+    - **data_dc.txt:** The DC potential data
 
-	- **data_ip.txt:** The IP data (only if the IP or IPL option was set in the input file)
+    - **data_ip.txt:** The IP data (only if the IP or IPL option was set in the input file)
 
-	- **model.con | model0.chg:** The conductivity and/or chargeability model that was used for forward modelling but now wwith the air cells removed.
+    - **model.con | model0.chg:** The conductivity and/or chargeability model that was used for forward modelling but now wwith the air cells removed.
 
-	- **dcipoctree_fwd.log:** Log file which provides details about the parameters used in the forward modelling and diagnostic information about the results.
+    - **dcipoctree_fwd.log:** Log file which provides details about the parameters used in the forward modelling and diagnostic information about the results.
 
 
 

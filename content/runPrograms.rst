@@ -44,6 +44,7 @@ To learn the specifics of running each executable, see the following sections:
     OcTree Mesh Generation <programs/createOcTree>
     Creating Octree Models <programs/createModel>
     Forward Modeling <programs/forward>
+    Weights <programs/weightsFile>
     DC Inversion <programs/dcinversion>
     IP Inversion <programs/ipinversion>
 

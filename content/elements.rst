@@ -35,6 +35,7 @@ Here, we describe the main input files for executables contained with the DCIP o
     Create OcTree mesh <inputfiles/createOcTree>
     Create OcTree model <inputfiles/createModel>
     Forward modeling <inputfiles/forward>
+    Interface weights <inputfiles/weightsFile>
     DC Inversion <inputfiles/dcinversion>
     IP Inversion <inputfiles/ipinversion>
 
@@ -51,7 +52,8 @@ Here, we describe the formats of supporting files used to run DCIP octree execut
     Predicted Data File <files/preFile>
     Observations File <files/obsFile>
     Topography File <files/topoFile>
+    Active Model File <files/activemodel>
     OcTree Mesh File <files/octree_mesh>
     Model File <files/model>
-    Model and Face Weights Files <files/weights>
+    Model and Face Weights Files <files/weightsFile>
     Bounds File <files/bounds>

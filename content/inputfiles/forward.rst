@@ -25,7 +25,7 @@ The forward problem is solved using the executable program **dcipoctree_fwd.exe*
 
 
 
-.. figure:: images/create_inv_input.png
+.. figure:: images/create_fwd_input.png
      :align: center
      :width: 700
 
