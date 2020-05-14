@@ -1,7 +1,7 @@
 .. _dcip_input_dcinv:
 
-Inversion Input File
-====================
+DC Inversion Input File
+=======================
 
 The inverse problem is solved using the executable program **dcoctree_inv.exe**. The lines of input file are as follows:
 

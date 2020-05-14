@@ -1,7 +1,7 @@
 .. _dcip_input_ipinv:
 
-Inversion Input File
-====================
+IP Inversion Input File
+=======================
 
 The inverse problem is solved using the executable program **ipoctree_inv.exe**. The lines of input file are as follows:
 
