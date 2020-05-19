@@ -1,7 +1,7 @@
 .. _dcip_weights:
 
-Create Additional Cell and Face Weights
-=======================================
+Create Additional Cell, Sensitivity and Face Weights
+====================================================
 
 The creation of specific cell and face weights is not required to run the inversion. However, the user may want to weight the relative contributions of cells and/or gradients in certain regions towards the model objective function; see :ref:`theory: inversion <theory_inv>`. The user may also want to apply weights that reduce the impact of near surface artifacts due to receivers.
 
@@ -14,6 +14,18 @@ Model weights are applied in the smallness term of the model objective function;
      - All cells **must** be assigned a weight values larger than 0! This is to ensure the problem is sufficiently well-conditioned.
      - Model weight values should be set relative to a value of 1. This is to ensure the relative emphasis on model weights and surface weights is preserved.
      - Large model weights (:math:`w \gg 1` ) are used for cells that we want to match the reference model. Small model weights (:math:`w \ll 1` ) are used for cells to reduce the impact of the reference model on the cells. 
+
+
+Generating Sensitivity Weights File
+-----------------------------------
+
+Sensitivity weights are used to counteract the mislocation of anomalous bodies due to the sensitivity of certain cells to the data. Sensitivity weights can be applied in the smallness and smoothness term of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate sensitivity weights on an Octree mesh, open a command window. In order, enter the path to **dcsensitivity.exe**, followed by the path to the :ref:`input file<dcip_input_sens>`; denoted here as **sens.inp**: 
+
+
+
+.. figure:: images/run_sensitivity.png
+    :align: center
+    :width: 700     
 
 
 
@@ -30,8 +42,8 @@ Interface weights are used to preserve the gradients or edges within certain reg
 To generate interface weights on an Octree mesh, open a command window. In order, enter the path to **interface_weights.exe**, followed by the path to the :ref:`input file<dcip_input_weights>`; denoted here as **interface_weights.inp**: 
 
 .. figure:: images/run_interface_weights.png
-     :align: center
-     :width: 700
+    :align: center
+    :width: 700
 
 
 Output File

@@ -14,6 +14,7 @@ The main executable programs within the DCIP octree program library are:
 
     - **create_octree_mesh_dcip:** creates an OcTree mesh based on the survey geometry
     - **dcipoctree_fwd:** used to forward model both DC and IP data
+    - **dcsensitivity:** computes and outputs a cell weights file containing the sensitivity weights
     - **dcoctree_inv:** inverts DC data to recover a conductivity model
     - **ipoctree_inv:** inverts IP data to recover a chargeabitiliy model
 
@@ -35,6 +36,7 @@ Here, we describe the main input files for executables contained with the DCIP o
     Create OcTree mesh <inputfiles/createOcTree>
     Create OcTree model <inputfiles/createModel>
     Forward modeling <inputfiles/forward>
+    Sensitivity weights <inputfiles/sensFile>
     Interface weights <inputfiles/weightsFile>
     DC Inversion <inputfiles/dcinversion>
     IP Inversion <inputfiles/ipinversion>
