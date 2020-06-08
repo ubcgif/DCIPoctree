@@ -9,12 +9,14 @@ The creation of specific cell and face weights is not required to run the invers
 Generating Model Weights File
 -----------------------------
 
-Model weights are applied in the smallness term of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate a model weights file, use the same workflow described on the :ref:`create model <dcip_model>` page. When creating a model weight file, consider the following:
+Model weights are applied in the smallness and smoothness terms of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate a model weights file, use the same workflow described on the :ref:`create model <dcip_model>` page. When creating a model weight file, consider the following:
 
      - All cells **must** be assigned a weight values larger than 0! This is to ensure the problem is sufficiently well-conditioned.
      - Model weight values should be set relative to a value of 1. This is to ensure the relative emphasis on model weights and surface weights is preserved.
      - Large model weights (:math:`w \gg 1` ) are used for cells that we want to match the reference model. Small model weights (:math:`w \ll 1` ) are used for cells to reduce the impact of the reference model on the cells. 
 
+
+.. _dcip_sensitivity_weights:
 
 Generating Sensitivity Weights File
 -----------------------------------
@@ -25,9 +27,21 @@ Sensitivity weights are used to counteract the mislocation of anomalous bodies d
 
 .. figure:: images/run_sensitivity.png
     :align: center
-    :width: 700     
+    :width: 700
 
 
+**Output Files:**
+
+The program **dcsensitivity.exe** creates the following output files:
+
+    - **sensitivities.txt:** the root mean squared sensitivities computed according to equation :eq:`sensitivities_rms`
+
+    - **sensitivity_weights.txt:** final sensitivity weights model computed according to the approach found :ref:`here <theory_sensitivity_weights>`. This model has been normalized such that the largest weight is 1. It has also been given a smallest possible value.
+
+    - **dcsensitivity_log:** a log file
+
+
+.. _dcip_interface_weights:
 
 Generating Interface Weights File
 ---------------------------------

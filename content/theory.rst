@@ -92,6 +92,8 @@ The model consists of five rectangular blocks buried in a uniform halfspace. Thr
 
 Since we intend to invert these data, we have added independent Gaussian noise. The standard deviation of the noise is equal to 2% of the datum magnitude plus a small threshold to deal with near zero data. The effect of the added noise can be seen in :numref:`FWD_cond` and :numref:`FWD_chg`.
 
+.. _theory_inv:
+
 General inversion methodology
 -----------------------------
 

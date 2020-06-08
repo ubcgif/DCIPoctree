@@ -6,9 +6,9 @@ active_cells_topo.txt       ! active topography cells | ALL_ACTIVE
 active_cells_topo.txt       ! active model cells | ALL_ACTIVE
 NO_WEIGHT                   ! cell weights | NO_WEIGHT
 interface_weights.txt       ! interface weights | NO_FACE_WEIGHT
-NO_WEIGHT                   ! additional smallness weights | NO_WEIGHT
+sensitivity_weights.txt     ! additional smallness weights | NO_WEIGHT
 1 1e-5 0.5                  ! DEFAULT | beta_max beta_min beta_factor
-1e-4 1 1 1                  ! as ax ay az
+1e-8 1 1 1                  ! as ax ay az
 0.25                        ! chi factor
 1.e-2  1.e-3  2             ! tol_nl mindm iter_per_beta
 1.e-2  20                   ! tol_ipcg max_iter_ipcg
