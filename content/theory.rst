@@ -207,6 +207,60 @@ where :math:`\alpha` in (0,1] limits the step size and is chosen to ensure that 
 
 The major computational effort in this approach includes the calculation of the sensitivity matrix, solution of the basic linearized Equation :eq:`solution`, and the choice of regularization parameter :math:`\beta`. The sensitivity is computed using the standard adjoint equation approach, and Equation :eq:`solution` or :eq:`solution2` is solved using a pre-conditioned conjugate gradient (CG) technique. 
 
+
+.. _theory_sensitivity_weights:
+
+Computation of Sensitivities and Sensitivity Weights
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Average sensitivities are useful for depth of investigation analysis. And sensitivity weights can be used to counteract the natural tendency of DC inversions to place anomalous structures very near to the electrodes due to high sensitivities.
+
+Where :math:`n` is the number of data and :math:`v_j` is the volume of cell :math:`j`, the average sensitivity of cell :math:`j` is given by:
+
+.. math::
+	s_j = \frac{1}{nv_j} \sum_{i=1}^n \big | J_{i,j} \big |
+
+The DC inversion code does not explicitly form the sensitivity matrix. As a result, we cannot compute the true average sensitivities. We instead compute the root mean squares sensitivities and let:
+
+.. math::
+	s_j = \frac{1}{v_j} \Bigg ( \sum_{i=1}^n J_{i,j}^2 \Bigg )
+	= \frac{1}{v_j} diag \big ( \mathbf{J^T J} \big )_j
+
+The diagonal elements of :math:`\mathbf{J^T J}` can be approximated using Hutchinson's method:
+
+.. math::
+	diag \big ( \mathbf{J^T J} \big ) \approx \frac{1}{K} \sum_{k=1}^K diag ( \mathbf{u}) \mathbf{J^T J u}
+
+where :math:`\mathbf{u}` is a random vector and the accuracy of the approximation improves as :math:`K` increases. Hutchinson's method is easy to implement since we have sub-routines for computing :math:`\mathbf{J}` and :math:`\mathbf{J^T}` by a vector.
+
+Thus, the root mean sensitivities are computed by:
+
+.. math::
+	\mathbf{s} = diag \big ( \mathbf{v^{-1}} \big ) \Bigg ( \Bigg | \frac{1}{K} \sum_{k=1}^K diag(\mathbf{u}) \mathbf{J^T J u} \Bigg | \Bigg )
+	:label: sensitivities_rms
+
+The root mean squared sensitivities work well for depth of investigation analysis but they cannot be directly implemented as sensitivity weights. To create a sensitivity weights model, we must smooth and scale the sensitivities. This process is explained as follows.
+
+The sensitivities computed from equation :eq:`sensitivities_rms` and the regularization from equation :eq:`modobjdiscr2` by solving the following system:
+
+.. math::
+	\big ( \mathbf{W_m^T W_m} \big ) \mathbf{w} = \mathbf{s}
+
+The solution of the previous equation is then scaled in the log-domain before being returned via exponential:
+
+.. math::
+	weights = exp \Bigg ( \frac{ln(\mathbf{w} - d)}{c-d}(a-b) ln(1) - (a-b) \Bigg )
+
+where
+
+.. math::
+	a &= max (ln(\mathbf{s}))\\
+	b &= min (ln(\mathbf{s}))\\
+	c &= max (ln(\mathbf{w}))\\
+	d &= min (ln(\mathbf{w}))
+
+
+
 Inversion of IP data
 --------------------
 
