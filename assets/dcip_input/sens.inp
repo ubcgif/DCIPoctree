@@ -2,6 +2,6 @@ octree_mesh.txt          ! octree mesh file
 LOC_XYZ data.dc          ! data file
 VALUE 0.01               ! conductivity model file | VALUE
 active_cells_topo.txt    ! topography actice cells file | ALL_ACTIVE
-20                       ! nsample
-3                        ! method: 1 | 2 | 3
+10                       ! nsample
+2                        ! method: 1 | 2 | 3
 0.001                    ! weights truncation value (0 for no weights)

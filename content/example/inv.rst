@@ -16,6 +16,9 @@ Here, the codes **dcoctree_inv.exe** and **ipoctree_inv.exe** are used to recove
 DC Inversion
 ------------
 
+.. note:: The anomalies to our test model are well-constrained by the data and sensitivity weights are not required. The effects of the sensitivities of near-surface cells will be minimized by applying a near-surface interface weighting. For this example, we merely recover the smoothest model.
+
+
 Files relevant to this part of the example are in the sub-folder *dc_inv*. To invert the synthetic data, the input file below (**dc_inv.inp**) was used. For formatting, :ref:`see format <dcip_input_dcinv>` :
 
 .. figure:: ../inputfiles/images/create_dc_inv_input.png
