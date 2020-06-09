@@ -6,7 +6,7 @@ Inversion
 Here, the codes **dcoctree_inv.exe** and **ipoctree_inv.exe** are used to recover conductivity and chargeability models, respectively. Because this is a simple example, we assigned a uncertainties of 1e-8 V + 1% to all DC data and uncertainties of 0.001 + 1% to all IP data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion. Before running this example, you may want to do the following:
 
 	- `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example.zip>`__ (if not done already)
-	- :ref:`Learn how to run code from command line <dcip_dcinv>`
+	- :ref:`Learn how to run code from command line <dc_inv>`
 	- :ref:`Learn the format of the input file <dcip_input_dcinv>`
 
 

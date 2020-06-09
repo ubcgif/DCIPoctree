@@ -31,7 +31,7 @@ The :ref:`OcTree mesh<octreeFile>` used in the DCIP octree code are created usin
      :align: center
      :width: 700
 
-     Example input file for creating octree mesh (`Download <https://github.com/ubcgif/E3D/raw/e3d/assets/dcip_input/octree_mesh.inp>`__ )
+     Example input file for creating octree mesh (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/octree_mesh.inp>`__ )
 
 
 Line Descriptions

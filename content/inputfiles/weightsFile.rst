@@ -30,7 +30,7 @@ The parameters used to create cell weights are defined in the input file. The li
      :align: center
      :width: 700
 
-     Example input file for creating interface weights (`Download <https://github.com/ubcgif/dcip/raw/dcip/assets/dcip_input/interface_weights.inp>`__ ).
+     Example input file for creating interface weights (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/interface_weights.inp>`__ ).
 
 
 .. _dcip_input_weights_lines:

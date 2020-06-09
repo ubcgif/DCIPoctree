@@ -51,7 +51,7 @@ The inverse problem is solved using the executable program **dcoctree_inv.exe**.
      :align: center
      :width: 700
 
-     Example input file for the inversion program (`Download <https://github.com/ubcgif/E3D/raw/e3d/assets/dcip_input/e3dinv.inp>`__ ). Example input file for forward modeling only (`Download <https://github.com/ubcgif/E3D/raw/e3d/assets/dcip_input/e3dfwd.inp>`__ ).
+     Example input file for the inversion program (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/dc_inv.inp>`__ ).
 
 
 Line Descriptions
