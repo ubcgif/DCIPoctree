@@ -23,15 +23,15 @@ The parameters used to create sensitivity weights are defined in the input file.
 +--------+----------------------------------------------------+---------------------------------------------------------+
 | 6      | :ref:`Method <dcip_sens_ln6>`                      | approximation method for sensitivity computation        |
 +--------+----------------------------------------------------+---------------------------------------------------------+
-| 7      | :ref:`Truncation value<dcip_sens_ln7>`             | val | (0 for no weights)                                |
+| 7      | :ref:`Output Name<dcip_sens_ln7>`                  | name for output file                                    |
 +--------+----------------------------------------------------+---------------------------------------------------------+
 
 
-.. figure:: images/create_sens_input.png
+.. figure:: images/interface_senss_input.png
      :align: center
      :width: 700
 
-     Example input file for creating interface senss (`Download <https://github.com/ubcgif/dcip/raw/dcip/assets/dcip_input/sens.inp>`__ ).
+     Example input file for creating interface senss (`Download <https://github.com/ubcgif/dcip/raw/dcip/assets/dcip_input/interface_senss.inp>`__ ).
 
 
 .. _dcip_input_senss_lines:
@@ -63,7 +63,7 @@ Line Descriptions
 
 .. _dcip_sens_ln5:
 
-    - **# Samples:** This is the number of samples used to approximate the sensitivities. Somewhere between 5 and 20 samples are generally needed. A reasonable default value is 10. For more, see :ref:`theory section <theory_sensitivity_weights>` .
+    - **# Samples:** This is the number of samples used to approximate the sensitivities.
 
 .. _dcip_sens_ln6:
 
@@ -76,6 +76,6 @@ Line Descriptions
 
 .. _dcip_sens_ln7:
 
-    - **Truncation value:** If the difference between the largest and smallest sensitivity weights value spans too many orders of magnitude, it will negatively impact the stability of the inversion. The user will enter the minimum value for the sensitivity weights model. Note that the sensitivity weights model is normalized so that the largest value is 1. So for example, if a value of *0.001* is entered, the largest value in the sensitivity weights model will be 1, and all cells with normalized weights less than 0.001 will be set to 0.001. For more, see :ref:`theory section <theory_sensitivity_weights>` .
+    - **Output Name:** File name for the output sensitivity weights file.
 
 

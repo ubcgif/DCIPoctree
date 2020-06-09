@@ -10,7 +10,6 @@ Here, the program libraries for DCIP octree will be used to:
     - create an Octree mesh based on the survey
     - create octree models
     - DC and IP data for conductivity and chargeability models, respectively
-    - create sensitivity weights model
     - create interface weights
     - invert DC and IP data to recover conductivity and chargeability models, respectively
 
@@ -26,7 +25,6 @@ The full examples are parse into 5 sections:
     Create octree mesh <example/create_octree>
     Create octree model <example/create_model>
     Forward modeling <example/fwd>
-    Sensitivity weights <example/sensitivity_weights>
     Interface weights <example/interface_weights>
     Inversion <example/inv>
 
