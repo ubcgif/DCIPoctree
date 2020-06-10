@@ -31,7 +31,7 @@ The parameters used to create sensitivity weights are defined in the input file.
     :align: center
     :width: 700
 
-    Example input file for creating interface senss (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/sens.inp>`__ ).
+    Example input file for computing sensitivities and sensitivity weights model ( `Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/sens.inp>`__ ).
 
 
 .. _dcip_input_senss_lines:
