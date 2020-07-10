@@ -24,11 +24,11 @@ The inverse problem is solved using the executable program **ipoctree_inv.exe**.
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
 | 7      | :ref:`Active Model Cells<dcip_input_ipinv_ln7>`                     | active model cells                                                |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
-| 8      | :ref:`Cell Weights<dcip_input_ipinv_ln8>`                           | additional cell weights                                           |
+| 8      | :ref:`Global Cell Weights<dcip_input_ipinv_ln8>`                    | global cell weights                                               |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
-| 9      | :ref:`Face Weights<dcip_input_ipinv_ln9>`                           | additional face weights                                           |
+| 9      | :ref:`Global Face Weights<dcip_input_ipinv_ln9>`                    | global face weights                                               |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
-| 10     | :ref:`Face Weights<dcip_input_ipinv_ln10>`                          | additional face weights                                           |
+| 10     | :ref:`Cell Weights in Smallness Term<dcip_input_ipinv_ln10>`        | additional cell weights in smallness term                         |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
 | 11     | :ref:`beta_max beta_min beta_factor<dcip_input_ipinv_ln11>`         | cooling schedule for beta parameter                               |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
@@ -101,16 +101,16 @@ Line Descriptions
 
 .. _dcip_input_ipinv_ln8:
 
-    - **Cell Weights:** Here, the user specifies cell weights that are applied in both the smallness and smoothness terms in the model objective function. The user can provide the file path to a :ref:`cell weights file <weightsFile>` . If no cell weights are supplied, the user enters "NO_WEIGHT".
+    - **Global Cell Weights:** Here, the user specifies cell weights that are applied in both the smallness and smoothness terms in the model objective function. The user can provide the file path to a :ref:`cell weights file <weightsFile>` . If no cell weights are supplied, the user enters "NO_WEIGHT".
 
 .. _dcip_input_ipinv_ln9:
 
-    - **Face Weights:** Here, the user specifies whether face weights are supplied. If so, the user provides the file path to a face weights file :ref:`cell weights file <weightsFile>`. If no additional cell weights are supplied, the user enters "NO_FACE_WEIGHT". The user may also enter "EKBLOM" for 1-norm approximation to recover sharper edges.
+    - **Global Face Weights:** Here, the user specifies whether face weights are supplied. If so, the user provides the file path to a face weights file :ref:`cell weights file <weightsFile>`. If no additional cell weights are supplied, the user enters "NO_FACE_WEIGHT". The user may also enter "EKBLOM" for 1-norm approximation to recover sharper edges.
 
 
 .. _dcip_input_ipinv_ln10:
 
-    - **Smallness Weights:** Here, the user can specify cell weights that are ONLY applied to the smallness term in the model objective function; e.g. they are not used in the smoothness. The user can provide the file path to a :ref:`cell weights file <weightsFile>` . For no additional weighting, the user enters the flag "NO_WEIGHT".
+    - **Cell Weights in Smallness Terms:** Here, the user can specify cell weights that are ONLY applied to the smallness term in the model objective function; e.g. they are not used in the smoothness. The user can provide the file path to a :ref:`cell weights file <weightsFile>` . For no additional weighting, the user enters the flag "NO_WEIGHT".
 
 
 .. _dcip_input_ipinv_ln11:
