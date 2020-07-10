@@ -22,9 +22,9 @@ The inverse problem is solved using the executable program **dcoctree_inv.exe**.
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
 | 6      | :ref:`Active Model Cells<dcip_input_dcinv_ln6>`                     | active model cells                                                |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
-| 7      | :ref:`Cell Weights<dcip_input_dcinv_ln7>`                           | global cell weights                                               |
+| 7      | :ref:`Global Cell Weights<dcip_input_dcinv_ln7>`                    | global cell weights                                               |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
-| 8      | :ref:`Face Weights<dcip_input_dcinv_ln8>`                           | global face weights                                               |
+| 8      | :ref:`Global Face Weights<dcip_input_dcinv_ln8>`                    | global face weights                                               |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
 | 9      | :ref:`Additional Smallness Cell Weights<dcip_input_dcinv_ln9>`      | additional cell weights in smallness term                         |
 +--------+---------------------------------------------------------------------+-------------------------------------------------------------------+
