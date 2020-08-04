@@ -21,9 +21,12 @@ Model weights are applied in the smallness and smoothness terms of the model obj
 Generating Sensitivity Weights File
 -----------------------------------
 
-Sensitivity weights are used to counteract the mislocation of anomalous bodies due to the sensitivity of certain cells to the data. Sensitivity weights can be applied in the smallness and smoothness term of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate sensitivity weights on an Octree mesh, open a command window. In order, enter the path to **dcsensitivity.exe**, followed by the path to the :ref:`input file<dcip_input_sens>`; denoted here as **sens.inp**: 
+Sensitivity weights are used to counteract the mislocation of anomalous bodies due to the sensitivity of certain cells to the data. Sensitivity weights can be applied in the smallness and smoothness term of the model objective function; see :ref:`theory: inversion <theory_inv>`. Generating sensitivity weights is a 2-step process.
 
+Step 1: Approximating Sensitivities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Before creating the sensitivity weights, you must first approximate the sensitivities. To compute approximated sensitivities on an Octree mesh, open a command window. In order, enter the path to **dcsensitivity.exe**, followed by the path to the :ref:`input file<dcip_input_sens>`; denoted here as **sens.inp**: 
 
 .. figure:: images/run_sensitivity.png
     :align: center
@@ -36,9 +39,28 @@ The program **dcsensitivity.exe** creates the following output files:
 
     - **sensitivities.txt:** the root mean squared sensitivities computed according to equation :eq:`sensitivities_rms`
 
-    - **sensitivity_weights.txt:** final sensitivity weights model computed according to the approach found :ref:`here <theory_sensitivity_weights>`. This model has been normalized such that the largest weight is 1. It has also been given a smallest possible value.
+    - **dcsensitivity.log:** a log file
 
-    - **dcsensitivity_log:** a log file
+
+Step 2: Sensitivity Weights
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Using the approximated sensitivities from step 1, we would like to create a sensitivity weights file. In the command window you have opened, or in a new one, enter the path to **sens2weights.exe**, followed by the path to the :ref:`input file<dcip_input_sens>`; denoted here as **sens2weights.inp**:
+
+
+.. figure:: images/run_sens2weights.png
+    :align: center
+    :width: 700
+
+
+**Output Files:**
+
+The program **sens2weights.exe** creates the following output files:
+
+    - **sensitivity weights** A sensitivity weights file with a user-specified name
+
+    - **sens2weights.log:** a log file
+
 
 
 .. _dcip_interface_weights:

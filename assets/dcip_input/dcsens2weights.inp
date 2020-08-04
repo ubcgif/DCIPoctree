@@ -1,0 +1,6 @@
+octree_mesh.txt              ! octree mesh
+sensitivities.txt            ! approximate sensitivities model
+active_cells_topo.txt        ! topography active model | ALL_ACTIVE
+0.1                          ! weights truncation factor (0 < val < 1)
+2                            ! smoothing factor (integer)
+dcweights.txt                ! output weight filename
