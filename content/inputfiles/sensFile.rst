@@ -30,7 +30,7 @@ The parameters used to approximate the sensitivities are defined in the followin
 +--------+----------------------------------------------------+---------------------------------------------------------+
 
 
-.. figure:: images/create_sens_input.png
+.. figure:: ./images/create_sens_input.PNG
     :align: center
     :width: 700
 
@@ -102,7 +102,7 @@ The parameters used to create a weights file from approximate sensitivities are 
 +--------+----------------------------------------------------+---------------------------------------------------------+
 
 
-.. figure:: images/create_sens_input.png
+.. figure:: ./images/create_sens_input.PNG
     :align: center
     :width: 700
 
