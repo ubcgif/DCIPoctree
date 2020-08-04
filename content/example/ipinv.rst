@@ -58,7 +58,6 @@ Files relevant to this part of the example are in the sub-folder *ip_inv*. To in
 
 The true model (left) and the final recovered model (right) are shown below.
 
-**REPLACE**
 
 .. figure:: images/ip_inv.png
      :align: center

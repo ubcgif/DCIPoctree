@@ -59,7 +59,6 @@ Files relevant to this part of the example are in the sub-folder *dc_inv*. To in
 
 The true model (left) and the final recovered model (right) are shown below.
 
-**REPLACE**
 
 .. figure:: images/dc_inv.png
      :align: center
