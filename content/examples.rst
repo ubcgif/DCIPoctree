@@ -18,7 +18,7 @@ Zip folders containing all necessary files can be downloaded here:
 
     - `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example.zip>`__
 
-The full examples are parse into 5 sections:
+The full examples are parse into 6 sections:
 
 .. toctree::
     :maxdepth: 2
@@ -26,7 +26,7 @@ The full examples are parse into 5 sections:
     Create octree mesh <example/create_octree>
     Create octree model <example/create_model>
     Forward modeling <example/fwd>
-    Sensitivity weights <example/sensitivity_weights>
     Interface weights <example/interface_weights>
-    Inversion <example/inv>
+    DC Inversion <example/dcinv>
+    IP Inversion <example/ipinv>
 

@@ -28,8 +28,6 @@ The parameters used to approximate the sensitivities are defined in the followin
 +--------+----------------------------------------------------+---------------------------------------------------------+
 | 6      | :ref:`Method <dcip_sens_ln6>`                      | approximation method for sensitivity computation        |
 +--------+----------------------------------------------------+---------------------------------------------------------+
-| 7      | :ref:`Truncation value<dcip_sens_ln7>`             | val | (0 for no weights)                                |
-+--------+----------------------------------------------------+---------------------------------------------------------+
 
 
 .. figure:: images/create_sens_input.png
@@ -111,7 +109,7 @@ The parameters used to create a weights file from approximate sensitivities are 
     Example input file for computing sensitivity weights model ( `Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/dcsens2weights.inp>`__ ).
 
 
-.. _dcip_input_sens_lines:
+.. _dcip_input_sens2weights_lines:
 
 Line Descriptions
 ^^^^^^^^^^^^^^^^^

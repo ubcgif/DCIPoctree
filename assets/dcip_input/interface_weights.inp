@@ -4,5 +4,5 @@ NO_MODEL                               ! model file | NO_MODEL
 LOG_MODEL                              ! LOG_MODEL | LIN_MODEL
 1e-4 1e-3                              ! min_val max_val (gradient tolerance)
 3                                      ! # of surface layers
-100 25 5                               ! w1 w2 w2 .....
+40 10 5                                ! w1 w2 w3 .....
 interface_weights.txt                  ! output filename
