@@ -1,4 +1,4 @@
-IP                          ! data type: DC|IP|IPL
+IPL                         ! data type: DC|IP|IPL
 octree_mesh.txt             ! octree mesh
 LOC_XYZ data_Z.txt          ! LOC_XY|LOC_XYZ filename
 true_model.con              ! conductivity model
