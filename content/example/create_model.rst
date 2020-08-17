@@ -17,7 +17,7 @@ Here, the code **blk3cellOct.exe** is used to create both a conductivity and an 
      :width: 700
 
 
-The resulting Octree model shows a more conductive block (:math:`\sigma` = 0.1 S/m) to the West and a more resistive block (:math:`\sigma` = 0.001 S/m) to the East (:math:`\sigma` = 0.01 S/m) within a moderatively conductive background (:math:`\sigma_b` = 0.001 S/m).
+The resulting Octree model shows a more conductive block (:math:`\sigma` = 0.1 S/m) to the West and a more resistive block (:math:`\sigma` = 0.001 S/m) to the East within a moderatively conductive background (:math:`\sigma_b` = 0.01 S/m).
 
 
 .. figure:: images/con_model.png
