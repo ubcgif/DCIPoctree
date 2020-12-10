@@ -9,6 +9,8 @@ Survey files provide the survey information for predicting data with **dcipoctre
 
 
 |
+| [*IPTYPE*=1,2]
+|
 | :math:`\;\;\;X_A(1) \;\;\;\;\;\;\;\;\; Y_A(1) \;\;\;\;\;\;\;\;\, [Z_A(1)] \;\;\;\;\;\;\;\; X_B(1) \;\;\;\;\;\;\;\; Y_B(1) \;\;\;\;\;\;\;\;\; [Z_B(1)] \;\;\;\;\;\;\;\;\;\;\; N`
 | :math:`\;X_M(1,2) \;\;\;\; Y_M(1,2) \;\;\;\;\, [Z_M(1,2)] \;\;\;\;\, X_N(1,2) \;\;\;\;\, Y_N(1,2) \;\;\;\;\, [Z_N(1,2)]`
 | :math:`\;X_M(1,1) \;\;\;\; Y_M(1,1) \;\;\;\;\, [Z_M(1,1)] \;\;\;\;\, X_N(1,1) \;\;\;\;\, Y_N(1,1) \;\;\;\;\, [Z_N(1,1)]`
@@ -30,7 +32,8 @@ Survey files provide the survey information for predicting data with **dcipoctre
 
 
 where
-
+	
+	- *IPTYPE* line is used only when simulating IP data. Set *IPTYPE=1* for apparent chargeability and set *IPTYPE=2* for secondary potential
     - :math:`X_A(i) \;\;\; Y_A(i) \;\;\; [Z_A(i)]` is the Easting, Northing and vertical (if needed) position of the A-electrode for source :math:`i`.
     - :math:`X_B(i) \;\;\; Y_B(i) \;\;\; [Z_B(i)]` is the Easting, Northing and vertical (if needed) position of the B-electrode for source :math:`i`.
     - :math:`X_M(i,j) \;\;\; Y_M(i,j) \;\;\; [Z_M(i,j)]` is the Easting, Northing and vertical (if needed) position of M-electrode associated with source :math:`i` and receiver :math:`j`.
