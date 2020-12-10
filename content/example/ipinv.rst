@@ -15,6 +15,7 @@ Sensitivity Weights
 
 Here, the code **dcsensitivity.exe** and the input file **ipsens.inp** (:ref:`see format <dcip_input_sens>`) are used to approximate the sensitivities for the IP problem. Then the code **sens2weights.exe** and the input file **sens2weights.inp**create a sensitivity weights file. This counteracts the inversion's natural tendancy to incorrectly place anomalous structures near the electrodes. Files relevant to this part of the example are in the sub-folder *ip_sensitivities* . Before running this example, you may want to do the following:
 
+
      - `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example.zip>`__ (if not done already)
      - :ref:`Learn how to run code from command line <dcip_sensitivity_weights>`
      - :ref:`Learn the format of the input file <dcip_input_sens>`
