@@ -102,7 +102,7 @@ The parameters used to create a weights file from approximate sensitivities are 
 +--------+----------------------------------------------------+---------------------------------------------------------+
 
 
-.. figure:: ./images/create_sens_input.PNG
+.. figure:: ./images/sens2weights_input.PNG
     :align: center
     :width: 700
 
