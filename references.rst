@@ -3,5 +3,5 @@
 References
 ==========
 
-.. bibliography:: reference.bib
+.. bibliography:: references.bib
     :all:
