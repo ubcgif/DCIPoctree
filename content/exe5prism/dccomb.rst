@@ -9,7 +9,7 @@ Since neither the surface or borehole DC data were able to adequately resolve al
 	:align: center
 	:figwidth: 75%
 
-The inversion converged after 23 beta iterations to a final data misfit of 2452. The recovered model is shown in :numref:`incdcjn`. Within each of the sections presented, the black outlines show the location of the blocks in the true model. While there is not a substantial improvement in the near surface model resolution when compared to the DC surface data inversion (see :numref:`invdc`), the deeper conductive and resistive blocks are much better resolved. 
+The inversion converged after 23 beta iterations to a final data misfit of 2452. The recovered model is shown in :numref:`invdcjn`. Within each of the sections presented, the black outlines show the location of the blocks in the true model. While there is not a substantial improvement in the near surface model resolution when compared to the DC surface data inversion (see :numref:`invdc`), the deeper conductive and resistive blocks are much better resolved. 
 
 The top panel of :numref:`invdcjn` shows a cross section through the recovered model at Y = 480 m. In this view, the intersected conductive surface block is very well resolved, but the thinner resistive surface block is slightly obscured by near surface artifacts (more refined inversion models could be devised to remove or smooth out many of these near surface anomalies using cell and interface weighting). Although the general size and location of the deeper blocks is well constrained, they still lack sharp boundaries.
 
