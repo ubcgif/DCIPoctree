@@ -40,6 +40,9 @@ extensions = [
     'example',
 ]
 
+# Basic bibtex config
+bibtex_bibfiles = ['references.bib']
+
 # Number figures
 numfig = True
 
