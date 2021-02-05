@@ -6,7 +6,7 @@ Background theory
 Introduction
 ------------
 
-This manual  presents  theoretical  background,  numerical  examples,  and  explanation  for implementing the program library DCIPoctree. This suite of algorithms, developed at `UBC-GIF <gif.eos.ubc.ca>`__, is needed to efficiently invert large sets of DC potential data and IP responses over a 3D earth structure. The manual is designed so that a geophysicist who has understanding of DC resistivity and induced polarization field experiments, but who is not necessarily versed in the details of inverse theory, can use the codes to invert his or her data.
+This manual  presents  theoretical  background for DCIP OcTree modeling package. This suite of algorithms, developed at `UBC-GIF <gif.eos.ubc.ca>`__, is needed to efficiently invert large sets of DC potential data and IP responses over a 3D earth structure. The manual is designed so that a geophysicist who has understanding of DC resistivity and induced polarization field experiments, but who is not necessarily versed in the details of inverse theory, can use the codes to invert his or her data.
 
 .. figure:: ../images/potentials.png
         :name: potentials
@@ -23,10 +23,10 @@ A typical DC/IP experiment involves inputting a current :math:`I` to the ground 
 where forward mapping operator :math:`\mathcal{F}_{dc}` is defined by the equation:
 
 .. math::
-        \nabla\cdot(\sigma\nabla \phi_\sigma)=-I\delta(\mathbf{r}-\mathbf{r}_s) 
+        \nabla\cdot(\sigma\nabla \phi_\sigma)=-I\delta(\boldsymbol{r}-\boldsymbol{r}_s) 
         :label: DC
 
-and appropriate  boundary  conditions.	In Equation :eq:`DC`, :math:`\sigma` is  the  electrical  conductivity  in Siemens/meter (S/m), :math:`\nabla` is the gradient operator, math:`I` is the strength of the input current in Amperes (A), and :math:`\mathbf{r}_s` is the location of the current source.  For typical earth structures, :math:`\sigma`, while positive, can vary over many orders of magnitude. The potential in Equation :eq:`DC` is the potential due to a single current. This is the value that would be measured in a pole-pole experiment. If potentials from pole-dipole or dipole-dipole surveys are to be generated then they can be obtained by using Equation :eq:`DC` and the principle of superposition.
+and appropriate  boundary  conditions.	In Equation :eq:`DC`, :math:`\sigma` is  the  electrical  conductivity  in Siemens/meter (S/m), :math:`\nabla` is the gradient operator, math:`I` is the strength of the input current in Amperes (A), and :math:`\boldsymbol{r}_s` is the location of the current source.  For typical earth structures, :math:`\sigma`, while positive, can vary over many orders of magnitude. The potential in Equation :eq:`DC` is the potential due to a single current. This is the value that would be measured in a pole-pole experiment. If potentials from pole-dipole or dipole-dipole surveys are to be generated then they can be obtained by using Equation :eq:`DC` and the principle of superposition.
 
 When the earth material is chargeable, the measured voltage will change with time and reach a limit value which is denoted by :math:\phi_\eta: in :numref:`potentials`. There are a multitude of microscopic polarization phenomena which when combined produce this response but all of these effects can be consolidated into a single macroscopic parameter called chargeability. We denote chargeability by the symbol :math:`\eta`. Chargeability is dimensionless, positive, and confined to the region [0,1).
 
@@ -39,7 +39,7 @@ To carry out forward modelling to compute :math:`\phi_{\eta}`, we adopt the form
 or
 
 .. math:: 
-        \nabla\cdot(\sigma(1-\eta)\nabla\phi_\eta)=-I\delta(\mathbf{r}-\mathbf{r}_s)
+        \nabla\cdot(\sigma(1-\eta)\nabla\phi_\eta)=-I\delta(\boldsymbol{r}-\boldsymbol{r}_s)
         :label: chargeability
 
 The IP datum can be either the secondary potential (:math:`\phi_s`) or the apparent chargeability (:math:`\eta_a`). The former is the difference of the forward modelled potentials with, and without, the IP effect:
@@ -63,43 +63,76 @@ The distribution of conductivity and chargeability in the earth can be extremely
 Forward modelling
 -----------------
 
-The forward modelling for the DC potentials and IP apparent chargeabilities is accomplished using a finite volume method :cite:`DeyMorrison1979` and a pre-conditioned conjugate gradient technique to solve Equation :eq:`DC`. The program that performs these calculations is ``DCIPoctreeFwd``. The DC modelling is performed by a single solution  of Equation :eq:`DC`, and the IP modelling is performed by carrying out two DC forward modellings. The IP data are generated according to the operations indicated in Equations :eq:`potentialsdiff` and :eq:`potentialsfrac`. To illustrate the DC resistivity and IP forward modelling algorithm, we generate synthetic data that would  be  acquired over the 3D conductivity structure shown in :numref:`5prisms`. 
+Discretized System
+^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../images/5prisms.png
-        :name: 5prisms
-        :figwidth: 50%
-        :align: right
+The forward modelling for the DC potentials and IP apparent chargeabilities is accomplished using a finite volume method :cite:`DeyMorrison1979` and a pre-conditioned conjugate gradient technique.
 
-        The synthetic model consists of five rectangular blocs in a uniform halfspace. The  blocks S1, S2, and B2 are more conductive than the uniform halfspace; and blocks S3 and B1 are more resistive. All five blocks are chargeable.  There are seven lines in east-west direction which are spaced 100 m apart. There are also four boreholes that extend to a depth of 400 m.
+**For the DC problem**, :eq:`DC` is discretized and the electric potential at cell centers (:math:`\boldsymbol{\phi_\sigma}`) are computed by solving the following linear system:
 
-The model consists of five rectangular blocks buried in a uniform halfspace. Three smaller blocks are placed on the surface while two larger blocks are at depth  to simulate the target of the survey.  The blocks S1, S2, and B2 are more conductive than the uniform halfspace; and blocks S3 and B1 are more resistive.  All five blocks are chargeable. Data from ten east-west lines surface lines with a line spacing of 100 m and four vertical boreholes are forward modelled. The surface experiment is carried out using pole-dipole data with a = 50 m and n = 1, 6, while the borehole experiments use a cross-hole  pole-dipole configuration with a 50 m potential dipole.
+.. math::
+	\boldsymbol{[M_c D M_{f\sigma}^{-1} D^T M_c ] \, \phi_\sigma} = \boldsymbol{q}
+	:label: DC_discretized
 
-:numref:`FWD_cond` displays the DC resistivity data from three selected lines for the surface experiment. The data are displayed in pseudo-section format. Note the strong responses to the conductivity anomalies on the surface. They appear as pant-legs extending from small n-spacing all the way to the largest n-spacing.  The buried blocks are  hardly identifiable since their responses have low amplitudes and broad distributions and are masked by the surface anomalies. The apparent chargeability pseudo-sections from the same lines are shown in :numref:`FWD_chg` (note that the apparent chargeability is well-defined in this case).  The masking effects of the surface blocks are also evident in the IP data. Thus inversion is required.
+where
 
-.. figure:: ../images/FWD_cond.png
-        :name: FWD_cond
-        :align: center
-        :figwidth: 75%
+	- :math:`\boldsymbol{D}` is a discretize divergence operator whose transpose acts as a modified gradient operator
+	- :math:`\boldsymbol{M_c} = diag(v)` is a sparse diagonal matrix containing the cell volumes
+	- :math:`\boldsymbol{M_{f\sigma}} = diag \big ( \boldsymbol{A_{fc}^T (v \odot \sigma^{-1})} \big )` where :math:`\boldsymbol{A_{fc}}` projects from faces to cell centers
+	- :math:`\boldsymbol{q}` is an integrated source term that lives at cell centers.
 
-        Examples of the apparent conductivity pseudo-sections along three east-west traverses. The data are simulated for a pole-dipole array with a = 50 m and n = 1 to 6. The forward modelled data have  been contaminated by independent Gaussian noise with a standard deviation equal to 2% of the accurate datum magnitude and mean of zero. The pseudo-sections are dominated by the surface responses, but there are some indications of the buried prisms. The colormap shows the apparent conductivity in mS/m.
+Once the system is solved, a sparse projection matrix :math:`\mathbf{P}` maps the potentials at cell centers to the electrode positions and computes the data, i.e.:
 
-.. figure:: ../images/FWD_chg.png
-        :name: FWD_chg
-        :align: center
-        :figwidth: 75%
+.. math::
+        \boldsymbol{d_{dc}} = \boldsymbol{P \phi_\sigma}
 
-        Examples of the apparent chargeability pseudo-sections along three east-west traverses.  The data have been contaminated by independent Gaussian noise with a standard deviation equal to 2% of the accurate datum magnitude plus a minimum of 0.001. The same masking effect of  near-surface prisms observed in apparent conductivity pseudo-sections is also present here. The colormap shows the apparent chargeability multiplied by 100.
 
-Since we intend to invert these data, we have added independent Gaussian noise. The standard deviation of the noise is equal to 2% of the datum magnitude plus a small threshold to deal with near zero data. The effect of the added noise can be seen in :numref:`FWD_cond` and :numref:`FWD_chg`.
+**For the IP problem**, the secondary potential due to the IP is computed according to :eq:`potentialsdiff`. :math:`\phi_\eta` is obtained by replacing :math:`\sigma` with :math:`\sigma (1 - \eta)` in :eq:`DC_discretized`. Therefore:
+
+.. math::
+	\boldsymbol{[M_c D M_{f\eta}^{-1} D^T M_c ] \, \phi_\eta} = \boldsymbol{q}
+        :label: IP_discretized
+
+where :math:`\boldsymbol{M_{f\eta}} = diag \big ( \boldsymbol{A_{fc}^T (v \odot \Delta\sigma^{-1} )} \big )` such that :math:`\boldsymbol{\Delta \sigma} = \boldsymbol{\sigma \odot (1 - \eta)}`.
+
+Thus using :eq:`DC_discretized` and :eq:`IP_discretized`, the secondary potential at cell centers due to IP is:
+
+.. math::
+        \boldsymbol{\phi_s} = \boldsymbol{\phi_\eta - \phi_\sigma}
+
+The secondary potential data is given by:
+
+.. math::
+        \boldsymbol{d_{ip}} = \boldsymbol{P \phi_s}
+
+And the apparent chargeabilities are given by:
+
+.. math::
+        \boldsymbol{\eta_a} = \boldsymbol{P} \dfrac{\boldsymbol{\phi_\eta - \phi_\sigma}}{\boldsymbol{\phi_\eta}}
+
+
+Source Term
+^^^^^^^^^^^
+
+The right-hand size of :eq:`DC_discretized` represents an integrated source term. For the DCIP OcTree package, the right-hand side is formed using an analytic primary field solution. For a homogeneous background conductivity model :math:`\boldsymbol{\sigma_0}`, a method of images approach is used to analytically compute the electric potential :math:`\boldsymbol{\phi_0}` at cell centers.
+
+Given that we know the background model :math:`\boldsymbol{\sigma_0}` and background solution :math:`\boldsymbol{\phi_0}`, we can use :eq:`DC_discretized` to compute the associated right-hand side, i.e.:
+
+.. math::
+	\boldsymbol{[M_c D M_{f\sigma_0} D^T M_c ] \, \phi_0} = \boldsymbol{q}
+
+
+.. important:: The method of images solution **does** consider topography. It is extremely accurate when the surface topography is flat, however it becomes less accurate when topography is extreme.
+
 
 .. _theory_inv:
 
 General inversion methodology
 -----------------------------
 
-The inverse problem is formulated as an optimization problem where an objective function of the model is minimized subject to the constraints in Equation :eq:`DC` for DC resistivity data or Equation :eq:`chargeability` for IP data. To outline our methodology, it is convenient to introduce a single notation for the data and for the model. We let :math:`\mathbf{d} = (d_1,d_2,...,d_N)^T` denote the data, where :math:`N` is the number of data. Using this notation, :math:`d_i` is either the :math:`i^{th}` potential in a DC resistivity data set, or the :math:`i^{th}` secondary potential/apparent chargeability in an IP survey. Let the physical property of interest be denoted by the generic symbol :math:`m` for the model element. The quantity :math:`m_i` denotes the conductivity or chargeability of the :math:`i^{th}` model cell. For the inversion, we choose :math:`m_i=\ln(\sigma_i)` when inverting for conductivities, and :math:`m_i=\eta_i` when reconstructing the chargeability distribution.
+The inverse problem is formulated as an optimization problem where an objective function of the model is minimized subject to the constraints in Equation :eq:`DC` for DC resistivity data or Equation :eq:`chargeability` for IP data. To outline our methodology, it is convenient to introduce a single notation for the data and for the model. We let :math:`\boldsymbol{d} = (d_1,d_2,...,d_N)^T` denote the data, where :math:`N` is the number of data. Using this notation, :math:`d_i` is either the :math:`i^{th}` potential in a DC resistivity data set, or the :math:`i^{th}` secondary potential/apparent chargeability in an IP survey. Let the physical property of interest be denoted by the generic symbol :math:`m` for the model element. The quantity :math:`m_i` denotes the conductivity or chargeability of the :math:`i^{th}` model cell. For the inversion, we choose :math:`m_i=\ln(\sigma_i)` when inverting for conductivities, and :math:`m_i=\eta_i` when reconstructing the chargeability distribution.
 
-Having defined a model, we next construct an objective function which, when minimized, produces a model that is geophysically interpretable and reproduces the data :math:`\mathbf{d}` to a justifiable level based on their associated uncertainties. The details of the objective function are problem dependent but generally we need the flexibility to be close to a reference model :math:`m_o` and also require that the recovered model be relatively smooth in all three spatial directions. Here we adopt a right-handed Cartesian coordinate system with :math:`y` positive north and and :math:`z` positive up. In defining the model objective function, the reference model will generally be included in the first component of the objective function but it can be removed, if desired, from the remaining derivative terms since we are often more confident in specifying the value of the model at a particular point than in supplying an estimate of the gradient. This leads to the following two distinct formulations of the model objective function.
+Having defined a model, we next construct an objective function which, when minimized, produces a model that is geophysically interpretable and reproduces the data :math:`\boldsymbol{d}` to a justifiable level based on their associated uncertainties. The details of the objective function are problem dependent but generally we need the flexibility to be close to a reference model :math:`m_o` and also require that the recovered model be relatively smooth in all three spatial directions. Here we adopt a right-handed Cartesian coordinate system with :math:`y` positive north and and :math:`z` positive up. In defining the model objective function, the reference model will generally be included in the first component of the objective function but it can be removed, if desired, from the remaining derivative terms since we are often more confident in specifying the value of the model at a particular point than in supplying an estimate of the gradient. This leads to the following two distinct formulations of the model objective function.
 
 .. math::
         \Phi_m =  &&\alpha_s\int\int\ w_s(m-m_0)^2dv + \alpha_x\int\int w_x\left(\frac{\partial{(m-m_0)}}{\partial x}\right)^2dv+ \nonumber \\
@@ -122,19 +155,19 @@ To perform a numerical solution, we discretize the model objective functions in 
 .. _mof:
 
 .. math::
-        \Phi_m(\mathbf{m})&=&(\mathbf{m}-\mathbf{m}_o)^T(\alpha_s \mathbf{W}_s^T\mathbf{W}_s+\alpha_x \mathbf{W}_x^T\mathbf{W}_x+\alpha_y \mathbf{W}_y^T\mathbf{W}_y+\alpha_z \mathbf{W}_z^T\mathbf{W}_z)(\mathbf{m}-\mathbf{m}_o), \nonumber\\
-        &\equiv&(\mathbf{m}-\mathbf{m}_o)^T(\mathbf{W}_m^T\mathbf{W}_m)(\mathbf{m}-\mathbf{m}_o), \nonumber\\
-        &= &\left \| \mathbf{W}_m(\mathbf{m}-\mathbf{m}_o) \right \|^2,
+        \Phi_m(\boldsymbol{m})&=&(\boldsymbol{m}-\boldsymbol{m}_o)^T(\alpha_s \boldsymbol{W}_s^T\boldsymbol{W}_s+\alpha_x \boldsymbol{W}_x^T\boldsymbol{W}_x+\alpha_y \boldsymbol{W}_y^T\boldsymbol{W}_y+\alpha_z \boldsymbol{W}_z^T\boldsymbol{W}_z)(\boldsymbol{m}-\boldsymbol{m}_o), \nonumber\\
+        &\equiv&(\boldsymbol{m}-\boldsymbol{m}_o)^T(\boldsymbol{W}_m^T\boldsymbol{W}_m)(\boldsymbol{m}-\boldsymbol{m}_o), \nonumber\\
+        &= &\left \| \boldsymbol{W}_m(\boldsymbol{m}-\boldsymbol{m}_o) \right \|^2,
         :label: modobjdiscr1
 
 for Equation :eq:`mof1` and the following for Equation :eq:`mof2`.
 
 .. math::
-        \Phi_m(\mathbf{m}) & = &(\mathbf{m}-\mathbf{m}_o)^T(\alpha_s \mathbf{W}_s^T\mathbf{W}_s)(\mathbf{m}-\mathbf{m}_o)+\mathbf{m}^T(\alpha_x \mathbf{W}_x^T\mathbf{W}_x+\alpha_y \mathbf{W}_y^T\mathbf{W}_y+\alpha_z \mathbf{W}_z^T\mathbf{W}_z)\mathbf{m}, \nonumber\\
-        &\equiv&(\mathbf{m}-\mathbf{m}_o)^T(\mathbf{W}_s^T\mathbf{W}_s)(\mathbf{m}-\mathbf{m}_o)+\mathbf{m}^T\mathbf{W}^T\mathbf{W}\mathbf{m},
+        \Phi_m(\boldsymbol{m}) & = &(\boldsymbol{m}-\boldsymbol{m}_o)^T(\alpha_s \boldsymbol{W}_s^T\boldsymbol{W}_s)(\boldsymbol{m}-\boldsymbol{m}_o)+\boldsymbol{m}^T(\alpha_x \boldsymbol{W}_x^T\boldsymbol{W}_x+\alpha_y \boldsymbol{W}_y^T\boldsymbol{W}_y+\alpha_z \boldsymbol{W}_z^T\boldsymbol{W}_z)\boldsymbol{m}, \nonumber\\
+        &\equiv&(\boldsymbol{m}-\boldsymbol{m}_o)^T(\boldsymbol{W}_s^T\boldsymbol{W}_s)(\boldsymbol{m}-\boldsymbol{m}_o)+\boldsymbol{m}^T\boldsymbol{W}^T\boldsymbol{W}\boldsymbol{m},
         :label: modobjdiscr2
 
-where :math:`\mathbf{m}` and :math:`\mathbf{m}_o` are :math:`M`-length discretized model vectors which characterize the conductivity/chargeability distributions within the current model and reference model, respectively. The individual matrices :math:`\mathbf{W}_s` , :math:`\mathbf{W}_x`, :math:`\mathbf{W}_y`, and :math:`\mathbf{W}_z` are straight-forwardly calculated once the model mesh and the weighting functions :math:`w_s` , :math:`w_x`, :math:`w_y`, :math:`w_z` are defined. The cumulative matrix :math:`\mathbf{W}_m^T\mathbf{W}_m` is then formed.
+where :math:`\boldsymbol{m}` and :math:`\boldsymbol{m}_o` are :math:`M`-length discretized model vectors which characterize the conductivity/chargeability distributions within the current model and reference model, respectively. The individual matrices :math:`\boldsymbol{W}_s` , :math:`\boldsymbol{W}_x`, :math:`\boldsymbol{W}_y`, and :math:`\boldsymbol{W}_z` are straight-forwardly calculated once the model mesh and the weighting functions :math:`w_s` , :math:`w_x`, :math:`w_y`, :math:`w_z` are defined. The cumulative matrix :math:`\boldsymbol{W}_m^T\boldsymbol{W}_m` is then formed.
 
 Having chosen an appropriate model objective function the next step in setting up the inversion is to define a data misfit measure. Here we use the :math:`l_2`-norm measure:
 
@@ -142,7 +175,7 @@ Having chosen an appropriate model objective function the next step in setting u
         \Phi_d = \left\| \textbf{W}_d(\textbf{d}-\textbf{d}^{obs})\right\|^2_2
         :label: phid
 
-and assume that the contaminating noise in the data is independent and Gaussian with zero mean. Specifying :math:`\mathbf{W}_d` to be a diagonal datum weighting matrix whose :math:`i^{th}` element is :math:`1/\epsilon_i`, where :math:`\epsilon_i` is the standard deviation of the :math:`i^{th}` datum, makes :math:`\Phi_d` a chi-squared variable distributed with :math:`N` degrees of freedom. Accordingly :math:`E[\chi^2]=N` provides a target misfit for the inversion.
+and assume that the contaminating noise in the data is independent and Gaussian with zero mean. Specifying :math:`\boldsymbol{W}_d` to be a diagonal datum weighting matrix whose :math:`i^{th}` element is :math:`1/\epsilon_i`, where :math:`\epsilon_i` is the standard deviation of the :math:`i^{th}` datum, makes :math:`\Phi_d` a chi-squared variable distributed with :math:`N` degrees of freedom. Accordingly :math:`E[\chi^2]=N` provides a target misfit for the inversion.
 
 The inverse problem is solved by finding a model m which minimizes :math:`\phi_m` and misfits the data by a pre-determined amount. Thus the solution is obtained by the following minimization problem of a global objective function :math:`\phi`,
 
@@ -151,7 +184,7 @@ The inverse problem is solved by finding a model m which minimizes :math:`\phi_m
         \mbox{s. t. } \Phi_{d}=\Phi_{d}^* \text{and optionally} ~ m^l\leq m\leq m^u, \nonumber
         :label: globphi
 
-where :math:`\beta` is a trade-off parameter that controls the relative importance of the model norm and data misfit. When the standard deviations of data errors are known, the acceptable misfit is given by the expected value :math:`\phi_{d}^*`. In general, each parameter in the recovered model (:math:`\mathbf{m}`) lies within its respective lower (:math:`\mathbf{m}^l`) and upper (:math:`\mathbf{m}^u`) bound. Chargeability is positive by definition so bounds are used in all IP inversions to implement the positivity constraint. 
+where :math:`\beta` is a trade-off parameter that controls the relative importance of the model norm and data misfit. When the standard deviations of data errors are known, the acceptable misfit is given by the expected value :math:`\phi_{d}^*`. In general, each parameter in the recovered model (:math:`\boldsymbol{m}`) lies within its respective lower (:math:`\boldsymbol{m}^l`) and upper (:math:`\boldsymbol{m}^u`) bound. Chargeability is positive by definition so bounds are used in all IP inversions to implement the positivity constraint. 
 
 The choice of the regularization parameter :math:`\beta` in the DC resistivity or IP inversion ultimately depends  upon the magnitude of the error associated with the data. The inversion of noisier data requires heavier regularization, thus a larger value of :math:`\beta` is required. Since the inversion of DC resistivity data is nonlinear, it is also important need to avoid the possibility of getting trapped in a local minima. The following strategy is implemented to determine an adequate :math:`\beta` in the program library DCIPoctree.
 
@@ -173,36 +206,36 @@ This inversion methodology provides a basic framework for solving a 3D geophysic
 Inversion of DC resistivity data
 --------------------------------
 
-The program library DCIPoctree provides a DC resistivity inversion program, ``DCoctreeInv``. The inversion of DC resistivity data, formulated as the minimization of the global objective function (see Equation :eq:`globphi`), is nonlinear since the data do not depend linearly upon the conductivity model. A Gauss-Newton approach is used in which the objective function is linearized about a current model, :math:`\mathbf{m}^{(n)}`, a model perturbation is computed, and then used to update the current model. Substituting :math:`\mathbf{m}^{(n+1)}=\mathbf{m}^{(n)}+\delta\mathbf{m}` into the global objective function (Equation :eq:`globphi`) gives:
+The program library DCIPoctree provides a DC resistivity inversion program, ``DCoctreeInv``. The inversion of DC resistivity data, formulated as the minimization of the global objective function (see Equation :eq:`globphi`), is nonlinear since the data do not depend linearly upon the conductivity model. A Gauss-Newton approach is used in which the objective function is linearized about a current model, :math:`\boldsymbol{m}^{(n)}`, a model perturbation is computed, and then used to update the current model. Substituting :math:`\boldsymbol{m}^{(n+1)}=\boldsymbol{m}^{(n)}+\delta\boldsymbol{m}` into the global objective function (Equation :eq:`globphi`) gives:
 
 .. math::
-        \phi(\mathbf{m}+\delta\mathbf{m})=\left \| \mathbf{W}_d(\mathbf{d}^{(n)}+\mathbf{J}\delta\mathbf{m}-\mathbf{d}) \right \|^2+\beta\left \| \mathbf{W}(\mathbf{m}+\delta\mathbf{m}- \mathbf{m}_0) \right \|^2+H.O.T
+        \phi(\boldsymbol{m}+\delta\boldsymbol{m})=\left \| \boldsymbol{W}_d(\boldsymbol{d}^{(n)}+\boldsymbol{J}\delta\boldsymbol{m}-\boldsymbol{d}) \right \|^2+\beta\left \| \boldsymbol{W}(\boldsymbol{m}+\delta\boldsymbol{m}- \boldsymbol{m}_0) \right \|^2+H.O.T
         :label: HOT
 
-where :math:`\mathbf{J}` is the sensitivity matrix and the element :math:`J_{ij}` quantifies the influence of the model change in j-th cell on the i-th datum,
+where :math:`\boldsymbol{J}` is the sensitivity matrix and the element :math:`J_{ij}` quantifies the influence of the model change in j-th cell on the i-th datum,
 
 .. math::
         J_{ij}=\frac{\partial d_i}{\partial m_j}=\frac{\partial \phi_i}{\partial ln(\sigma_i)}
         :label: sensitivity
 
-Neglecting the higher order terms (H.O.T.) and setting to zero the derivative with respect to :math:`\delta\mathbf{m}` yields the following system to solve for the model objective function (Equation :eq:`mof1`) used when the ``SMOOTH_MOD_DIF`` parameter is specified in the inversion input control file: 
+Neglecting the higher order terms (H.O.T.) and setting to zero the derivative with respect to :math:`\delta\boldsymbol{m}` yields the following system to solve for the model objective function (Equation :eq:`mof1`) used when the ``SMOOTH_MOD_DIF`` parameter is specified in the inversion input control file: 
 
 .. math::
-        (\mathbf{J}^T\mathbf{J}+\beta \mathbf{W}_m^{T}\mathbf{W}_m)\delta\mathbf{m} = -\mathbf{J}^T(\mathbf{d}^{(n)}-\mathbf{d})-\beta \mathbf{W}_m^T\mathbf{W}_m(\mathbf{m}^{(n)}-\mathbf{m}_0)
+        (\boldsymbol{J}^T\boldsymbol{J}+\beta \boldsymbol{W}_m^{T}\boldsymbol{W}_m)\delta\boldsymbol{m} = -\boldsymbol{J}^T(\boldsymbol{d}^{(n)}-\boldsymbol{d})-\beta \boldsymbol{W}_m^T\boldsymbol{W}_m(\boldsymbol{m}^{(n)}-\boldsymbol{m}_0)
         :label: solution
 
-where :math:`\mathbf{W}_m^T\mathbf{W}_m` is defined by Equation :eq:`modobjdiscr1`.
+where :math:`\boldsymbol{W}_m^T\boldsymbol{W}_m` is defined by Equation :eq:`modobjdiscr1`.
 
 Similarly, the following system arises when the model objective function (Equation :eq:`mof2`) is used (i.e. the ``SMOOTH_MOD`` parameter is specified in the inversion input control file):
 
 .. math::
-        (\mathbf{J}^T\mathbf{J}+\beta(\mathbf{W}_{s}^{T}\mathbf{W}_{s}+\mathbf{W}^{T}\mathbf{W}))\delta\mathbf{m} = -\mathbf{J}^T(\mathbf{d}^{(n)}-\mathbf{d})-\beta(\mathbf{W}_{s}^T\mathbf{W}_{s}(\mathbf{m}^{(n)}-\mathbf{m}_0)+\mathbf{W}^{T}\mathbf{W}\mathbf{m})
+        (\boldsymbol{J}^T\boldsymbol{J}+\beta(\boldsymbol{W}_{s}^{T}\boldsymbol{W}_{s}+\boldsymbol{W}^{T}\boldsymbol{W}))\delta\boldsymbol{m} = -\boldsymbol{J}^T(\boldsymbol{d}^{(n)}-\boldsymbol{d})-\beta(\boldsymbol{W}_{s}^T\boldsymbol{W}_{s}(\boldsymbol{m}^{(n)}-\boldsymbol{m}_0)+\boldsymbol{W}^{T}\boldsymbol{W}\boldsymbol{m})
         :label: solution2
 
-In these formulations we assume that the matrix :math:`\mathbf{W}_d` has been absorbed into the sensitivity matrix and data vectors. By solving either of these inverse problems you obtain the model perturbation, which then allows you to generate a new model according to the following relation:
+In these formulations we assume that the matrix :math:`\boldsymbol{W}_d` has been absorbed into the sensitivity matrix and data vectors. By solving either of these inverse problems you obtain the model perturbation, which then allows you to generate a new model according to the following relation:
 
 .. math::
-        \mathbf{m}^{(n+1)}=\mathbf{m}^{(n)} + \alpha \delta \mathbf{m},
+        \boldsymbol{m}^{(n+1)}=\boldsymbol{m}^{(n)} + \alpha \delta \boldsymbol{m},
         :label: perturbation
 
 where :math:`\alpha` in (0,1] limits the step size and is chosen to ensure that the total objective function is reduced.
@@ -226,19 +259,19 @@ The DC inversion code does not explicitly form the sensitivity matrix. As a resu
 
 .. math::
 	s_j = \frac{1}{v_j} \Bigg ( \sum_{i=1}^n J_{i,j}^2 \Bigg )
-	= \frac{1}{v_j} diag \big ( \mathbf{J^T J} \big )_j
+	= \frac{1}{v_j} diag \big ( \boldsymbol{J^T J} \big )_j
 
-The diagonal elements of :math:`\mathbf{J^T J}` can be approximated using Hutchinson's method:
+The diagonal elements of :math:`\boldsymbol{J^T J}` can be approximated using Hutchinson's method:
 
 .. math::
-	diag \big ( \mathbf{J^T J} \big ) \approx \frac{1}{K} \sum_{k=1}^K diag ( \mathbf{u}) \mathbf{J^T J u}
+	diag \big ( \boldsymbol{J^T J} \big ) \approx \frac{1}{K} \sum_{k=1}^K diag ( \boldsymbol{u}) \boldsymbol{J^T J u}
 
-where :math:`\mathbf{u}` is a random vector and the accuracy of the approximation improves as :math:`K` increases. Hutchinson's method is easy to implement since we have sub-routines for computing :math:`\mathbf{J}` and :math:`\mathbf{J^T}` by a vector.
+where :math:`\boldsymbol{u}` is a random vector and the accuracy of the approximation improves as :math:`K` increases. Hutchinson's method is easy to implement since we have sub-routines for computing :math:`\boldsymbol{J}` and :math:`\boldsymbol{J^T}` by a vector.
 
 Thus, the root mean sensitivities are computed by:
 
 .. math::
-	\mathbf{s} = diag \big ( \mathbf{v^{-1}} \big ) \Bigg ( \Bigg | \frac{1}{K} \sum_{k=1}^K diag(\mathbf{u}) \mathbf{J^T J u} \Bigg | \Bigg )
+	\boldsymbol{s} = diag \big ( \boldsymbol{v^{-1}} \big ) \Bigg ( \Bigg | \frac{1}{K} \sum_{k=1}^K diag(\boldsymbol{u}) \boldsymbol{J^T J u} \Bigg | \Bigg )
 	:label: sensitivities_rms
 
 The root mean squared sensitivities work well for depth of investigation analysis but they cannot be directly implemented as sensitivity weights. To create a sensitivity weights model, we must smooth and scale the sensitivities. This process is explained as follows.
@@ -246,20 +279,20 @@ The root mean squared sensitivities work well for depth of investigation analysi
 The sensitivities computed from equation :eq:`sensitivities_rms` and the regularization from equation :eq:`modobjdiscr2` by solving the following system:
 
 .. math::
-	\big ( \mathbf{W_m^T W_m} \big ) \mathbf{w} = \mathbf{s}
+	\big ( \boldsymbol{W_m^T W_m} \big ) \boldsymbol{w} = \boldsymbol{s}
 
 The solution of the previous equation is then scaled in the log-domain before being returned via exponential:
 
 .. math::
-	weights = exp \Bigg ( \frac{ln(\mathbf{w} - d)}{c-d}(a-b) ln(1) - (a-b) \Bigg )
+	weights = exp \Bigg ( \frac{ln(\boldsymbol{w} - d)}{c-d}(a-b) ln(1) - (a-b) \Bigg )
 
 where
 
 .. math::
-	a &= max (ln(\mathbf{s}))\\
-	b &= min (ln(\mathbf{s}))\\
-	c &= max (ln(\mathbf{w}))\\
-	d &= min (ln(\mathbf{w}))
+	a &= max (ln(\boldsymbol{s}))\\
+	b &= min (ln(\boldsymbol{s}))\\
+	c &= max (ln(\boldsymbol{w}))\\
+	d &= min (ln(\boldsymbol{w}))
 
 
 
@@ -294,17 +327,17 @@ where
 
 .. math::
         \left\{ \begin{array}{cl}
-        \frac{\partial \phi_i \left[ \sigma \right]}{\partial ln\sigma_j}, &\mathbf{d}=\phi_s\\
+        \frac{\partial \phi_i \left[ \sigma \right]}{\partial ln\sigma_j}, &\boldsymbol{d}=\phi_s\\
         \\
-        \frac{\partial ln\phi_i\left [ \sigma \right ]}{\partial ln\sigma_j},& \mathbf{d}=\eta_a
+        \frac{\partial ln\phi_i\left [ \sigma \right ]}{\partial ln\sigma_j},& \boldsymbol{d}=\eta_a
         \end{array}\right\}
         :label: Jij
 
 is the sensitivity matrix. Our inverse problem is formulated as:
 
 .. math::
-        \min \phi_m=\left \| \mathbf{W}_m(\eta-\eta_0) \right \|^2 \nonumber \\
+        \min \phi_m=\left \| \boldsymbol{W}_m(\eta-\eta_0) \right \|^2 \nonumber \\
         \mbox{s. t. } \phi_{d}=\phi_{d}^* \\ \text{and} \\ \eta\geq 0
         :label: inversion
 
-where :math:`\phi_d^{*}` is a target misfit. Again, for ease of future notation we incorporate the diagonal weighting matrix (:math:`\mathbf{W}_d`)  into :math:`\mathbf{J}` and :math:`\mathbf{d}`. In practice the true conductivity :math:`\sigma` is not known and so we must  use the conductivity found from the inversion of the DC resistivity data to construct the sensitivity matrix elements in Equation :eq:`Jij`.
+where :math:`\phi_d^{*}` is a target misfit. Again, for ease of future notation we incorporate the diagonal weighting matrix (:math:`\boldsymbol{W}_d`)  into :math:`\boldsymbol{J}` and :math:`\boldsymbol{d}`. In practice the true conductivity :math:`\sigma` is not known and so we must  use the conductivity found from the inversion of the DC resistivity data to construct the sensitivity matrix elements in Equation :eq:`Jij`.
