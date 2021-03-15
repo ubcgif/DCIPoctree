@@ -3,7 +3,7 @@
 Create Model Input File
 =======================
 
-The file **blk3cellOct.inp** defines the model (conductivity/active). The user specifies the locations, dimensions and values for a set of blocks. All undefined cells within the mesh are set to the background value. The format for this file is as follows:
+The file **blk3cellOct.inp** is used to create models on OcTree meshes (conductivity/chargeability/active). The user specifies the locations, dimensions and values for a set of blocks. All undefined cells within the mesh are set to the background value. The format for this file is as follows:
 
 .. tabularcolumns:: |C|C|C|
 
@@ -14,7 +14,7 @@ The file **blk3cellOct.inp** defines the model (conductivity/active). The user s
 +----------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------+
 | 2              | *Out Model Name*                                                                                          | output model name                      |
 +----------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------+
-| 3              |:math:`\sigma_b`                                                                                           | background conductivity/susceptibility |
+| 3              |:math:`\sigma_b`                                                                                           | background conductivity/chargeability  |
 +----------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------+
 | 4              |:math:`N`                                                                                                  | number of blocks                       |
 +----------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------+
@@ -27,7 +27,7 @@ The file **blk3cellOct.inp** defines the model (conductivity/active). The user s
 |                |:math:`x_1^{(N)} \;\;  x_2^{(N)} \;\; y_1^{(N)} \;\; y_2^{(N)} \;\; z_1^{(N)} \;\; z_2^{(N)} \;\; m^{(N)}` | Block N                                |
 +----------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------+
 
-where superscript :math:`(i)` for :math:`i=1,2,...,N` refers to a particular block. :math:`x_1,x_2,y_1,y_2,z_1` and :math:`z_2` define the nodes of each block and :math:`m` defines conductivity/susceptibility value.
+where superscript :math:`(i)` for :math:`i=1,2,...,N` refers to a particular block. :math:`x_1,x_2,y_1,y_2,z_1` and :math:`z_2` define the nodes of each block and :math:`m` defines conductivity/chargeability value.
 
 
 .. figure:: images/create_blk3cellOct_input_con.png

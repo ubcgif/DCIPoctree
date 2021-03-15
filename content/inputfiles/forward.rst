@@ -39,7 +39,7 @@ Line Descriptions
 
 	- **Data Type:** This line chooses the data which are modeled by the program:
 
-		- *DC:* DC resistivity data are modeled. Although the line for the chargeability input file is ignore, something must be put there as a placeholder.
+		- *DC:* DC resistivity data are modeled. Although the line for the chargeability input file is ignored, something must be put there as a placeholder.
 		- *IP:* DC resistivity data and IP data are modeled. IP data are modeled with a non-linear formulation.
 		- *IPL:* DC resistivity data and IP data are modeled. IP data are modeled with a linear formulation.
 

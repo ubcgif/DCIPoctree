@@ -74,15 +74,15 @@ Line Descriptions
 
     - **Initial Model:** On this line we specify the starting model for the inversion. On this line, there are 2 possible options:
 
-        - Enter the path to a conductivity model
-        - If a homogeneous conductivity value is being used, enter "VALUE" followed by a space and a numerical value; example "VALUE 0.01".
+        - Enter the path to a chargeability model
+        - If a homogeneous chargeability value is being used, enter "VALUE" followed by a space and a numerical value; example "VALUE 1e-5". **Do not** set the starting model to all 0s or the algorithm will not be able to find a step direction on the first iteration. In this case, you may set the starting modeling to some small value (1e-5)
 
 .. _dcip_input_ipinv_ln4:
 
-    - **Reference Model:** The user may supply the file path to a reference conductivity model. On this line, there are 2 possible options:
+    - **Reference Model:** The user may supply the file path to a reference model. On this line, there are 2 possible options:
 
-        - Enter the path to a conductivity model
-        - If a homogeneous conductivity value is being used, enter "VALUE" followed by a space and a numerical value; example "VALUE 0.01".
+        - Enter the path to a chargeability model
+        - If a homogeneous chargeability value is being used, enter "VALUE" followed by a space and a numerical value; example "VALUE 1e-5". Unlike the starting model, you can set the reference model to be zero.
 
 
 .. _dcip_input_ipinv_ln5:
