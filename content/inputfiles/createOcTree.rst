@@ -59,7 +59,7 @@ Line Descriptions
     - **locFile:** This line defines the electrode locations. The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*.
 
         - *ONLY_LOC:* If you are using a :ref:`survey file <surveyFile>` , then you must begin this line with the *ONLY_LOC* flag. If you are using a :ref:`observations file <obsFile>` , this first flag is not required.
-        - *LOC_XY|LOC_XYZ:* If the electrodes are all on the Earth's surface, use the flag *LOC_XY*. If the survey file contains any borehole measurements, use the flag *LOC_XYZ*.
+        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the code will project the electrodes to the discrete surface topography. For general formatted files, use the flag *LOC_XYZ*.
         - *filepath:* This is the filepath to the survey/observations file. 
     
 

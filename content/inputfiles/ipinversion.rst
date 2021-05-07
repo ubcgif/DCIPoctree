@@ -67,8 +67,8 @@ Line Descriptions
 
     - **Observation File:** On this line, we enter a flag *LOC_XY* or *LOC_XYZ*, followed by the file path to the :ref:`observations file<obsFile>`. The flag tells the program whether the electrodes are only on the surface or whether there are borehole measurements.
 
-        - *LOC_XY filepath:* The electrodes are all on the Earth's surface. The vertical position is defined by the topography line.
-        - *LOC_XYZ filepath:* The observations file contains borehole data.
+        - *LOC_XY filepath:* The electrodes are all projected to the discrete surface topograpy. If *Active Topography Cells* line is set to *ALL_ACTIVE*, the electrodes are placed on the top of the mesh.
+        - *LOC_XYZ filepath:* Electrodes remain at the exact XYZ location in the observations file. Necessary for borehole data.
 
 .. _dcip_input_ipinv_ln3:
 

@@ -1,0 +1,4 @@
+octree_mesh.txt                        ! octree_mesh
+active_cells_topo.txt                  ! active cells model | ALL_ACTIVE
+ONLY_LOC LOC_XY survey_xy.loc          ! [ONLY_LOC] LOC_XY|LOC_XYZ filename
+data_Z.txt                             ! output data name

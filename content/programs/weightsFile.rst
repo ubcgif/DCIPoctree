@@ -6,16 +6,6 @@ Create Additional Cell, Sensitivity and Face Weights
 The creation of specific cell and face weights is not required to run the inversion. However, the user may want to weight the relative contributions of cells and/or gradients in certain regions towards the model objective function; see :ref:`theory: inversion <theory_inv>`. The user may also want to apply weights that reduce the impact of near surface artifacts due to receivers.
 
 
-Generating Model Weights File
------------------------------
-
-Model weights are applied in the smallness and smoothness terms of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate a model weights file, use the same workflow described on the :ref:`create model <dcip_model>` page. When creating a model weight file, consider the following:
-
-     - All cells **must** be assigned a weight values larger than 0! This is to ensure the problem is sufficiently well-conditioned.
-     - Model weight values should be set relative to a value of 1. This is to ensure the relative emphasis on model weights and surface weights is preserved.
-     - Large model weights (:math:`w \gg 1` ) are used for cells that we want to match the reference model. Small model weights (:math:`w \ll 1` ) are used for cells to reduce the impact of the reference model on the cells. 
-
-
 .. _dcip_sensitivity_weights:
 
 Generating Sensitivity Weights File
@@ -23,8 +13,8 @@ Generating Sensitivity Weights File
 
 Sensitivity weights are used to counteract the mislocation of anomalous bodies due to the sensitivity of certain cells to the data. Sensitivity weights can be applied in the smallness and smoothness term of the model objective function; see :ref:`theory: inversion <theory_inv>`. Generating sensitivity weights is a 2-step process.
 
-Step 1: Approximating Sensitivities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 1: Computing Sensitivities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before creating the sensitivity weights, you must first approximate the sensitivities. To compute approximated sensitivities on an Octree mesh, open a command window. In order, enter the path to **dcsensitivity.exe**, followed by the path to the :ref:`input file<dcip_input_sens>`; denoted here as **sens.inp**: 
 
@@ -61,6 +51,16 @@ The program **sens2weights.exe** creates the following output files:
 
     - **sens2weights.log:** a log file
 
+
+
+Generating Model Weights File
+-----------------------------
+
+Model weights are applied in the smallness and smoothness terms of the model objective function; see :ref:`theory: inversion <theory_inv>`. To generate a model weights file, use the same workflow described on the :ref:`create model <dcip_model>` page. When creating a model weight file, consider the following:
+
+     - All cells **must** be assigned a weight values larger than 0! This is to ensure the problem is sufficiently well-conditioned.
+     - Model weight values should be set relative to a value of 1. This is to ensure the relative emphasis on model weights and surface weights is preserved.
+     - Large model weights (:math:`w \gg 1` ) are used for cells that we want to match the reference model. Small model weights (:math:`w \ll 1` ) are used for cells to reduce the impact of the reference model on the cells. 
 
 
 .. _dcip_interface_weights:

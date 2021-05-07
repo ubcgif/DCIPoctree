@@ -43,6 +43,7 @@ The main executable programs within the DCIP octree program library are:
 
     - **create_octree_mesh_dcip:** creates an OcTree mesh based on the survey geometry
     - **dcipoctree_fwd:** used to forward model both DC and IP data
+    - **surface_electrodes:** project surface formatted data to discrete surface topography
     - **dcsensitivity:** approximates the sensitivities for the DC or IP problem
     - **sens2weights:** creates sensitivity weights from sensitivities
     - **dcoctree_inv:** inverts DC data to recover a conductivity model

@@ -30,7 +30,7 @@ The parameters used to approximate the sensitivities are defined in the followin
 +--------+----------------------------------------------------+---------------------------------------------------------+
 
 
-.. figure:: ./images/create_sens_input.PNG
+.. figure:: ./images/create_dcsens_input.PNG
     :align: center
     :width: 700
 
@@ -50,7 +50,7 @@ Line Descriptions
 
     - **Survey File:** This line defines the survey file. The general syntax is *LOC_XY|LOC_XYZ filepath*.
 
-        - *LOC_XY|LOC_XYZ:* If the electrodes are all on the Earth's surface, use the flag *LOC_XY*. If the survey file contains any borehole measurements, use the flag *LOC_XYZ*.
+        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the program will project the electrode locations to the discrete surface topography. For general formatted file, use the flag *LOC_XYZ* and the exact XYZ locations will be preserved.
         - *filepath:* This is the filepath to the survey/observations file. If the file is DC data format, you will compute sensitivities for the DC inversion. If the file is IP format, you will compute sensitivities for the IP inversion.
 
 .. _dcip_sens_ln3:

@@ -3,4 +3,4 @@ LOC_XYZ data.dc              ! [ONLY_LOC] LOC_XY|LOC_XYZ obsfile
 VALUE 0.01                   ! conductivity model | VALUE val
 active_cells_topo.txt        ! topography active model | ALL_ACTIVE
 20                           ! nSamples
-3                            ! 1: Hutchinson v=-1,1 | 2: Hutchinson -1<v<1 | 3: Probe
+5                            ! method for computing sensitivities
