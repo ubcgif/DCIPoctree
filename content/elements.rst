@@ -37,6 +37,7 @@ Here, we describe the main input files for executables contained with the DCIP o
 
     Create OcTree mesh <inputfiles/createOcTree>
     Create OcTree model <inputfiles/createModel>
+    Project Electrodes to Surface <inputfiles/surfaceElectrodes>
     Forward modeling <inputfiles/forward>
     Sensitivity weights <inputfiles/sensFile>
     Interface weights <inputfiles/weightsFile>

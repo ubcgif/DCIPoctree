@@ -59,18 +59,18 @@ Line Descriptions
     - **locFile:** This line defines the electrode locations. The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*.
 
         - *ONLY_LOC:* If you are using a :ref:`survey file <surveyFile>` , then you must begin this line with the *ONLY_LOC* flag. If you are using a :ref:`observations file <obsFile>` , this first flag is not required.
-        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the code will project the electrodes to the discrete surface topography. For general formatted files, use the flag *LOC_XYZ*.
+        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the code will project the electrodes to the discrete surface topography. If the flag *NO_TOPO* the *topoFile* line, the electrodes are located a the top of the mesh. For general formatted files, use the flag *LOC_XYZ* and the true xyz electrode locations are preserved.
         - *filepath:* This is the filepath to the survey/observations file. 
     
 
 .. _dcip_input_octreeln6:
 
-    - **topoFile:** If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format. In the case of flat topography, the user instead enter "TOPO_CONST", followed by a space, then the elevation of the surface topography; for example "TOPO_CONST 125.5". For a flat topography at 0, use the flag "NO_TOPO".
+    - **topoFile:** If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format. In the case of flat topography, the user instead enter *TOPO_CONST*, followed by a space, then the elevation of the surface topography; for example *TOPO_CONST 125.5*. For a flat topography at 0, use the flag *NO_TOPO*.
 
 
 .. _dcip_input_octreeln7:
 
-    - **polygon edge width:** Here we define the horizontal extent of the core inversion mesh region. The user may do this by providing the path to a file containing the points for a polygon. The user may also set the horizontal extent of the core mesh region based on transmitter and receiver locations. The set of transmitter and receiver locations can be used to create a convex hull. For this option the user types "*MAKE_POLYGON d*", where *d* is the distance outside the convex hull the user want to extend to core mesh region.
+    - **polygon edge width:** Here we define the horizontal extent of the core inversion mesh region. The user may do this by providing the path to a file containing the points for a polygon. The user may also set the horizontal extent of the core mesh region based on transmitter and receiver locations. The set of transmitter and receiver locations can be used to create a convex hull. For this option the user types *MAKE_POLYGON d*, where *d* is the distance outside the convex hull the user want to extend to core mesh region.
 
 
 

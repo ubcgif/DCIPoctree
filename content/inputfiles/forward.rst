@@ -52,7 +52,7 @@ Line Descriptions
     - **Survey File:** On this line, we enter a flag *LOC_XY* or *LOC_XYZ*, followed by the file path to the :ref:`survey file<surveyFile>`. The flag tells the program whether the electrodes are only on the surface or whether there are borehole measurements.
 
     	- *LOC_XY filepath:* The electrodes are all projected to the discrete surface topograpy. If *Active Topography Cells* line is set to *ALL_ACTIVE*, the electrodes are placed on the top of the mesh.
-        - *LOC_XYZ filepath:* Electrodes remain at the exact XYZ location in the survey file. Necessary for borehole survey.
+        - *LOC_XYZ filepath:* Electrodes remain at the exact xyz locations in the survey file. Necessary for borehole survey.
 
 .. _dcip_input_fwd_ln4:
 
@@ -64,5 +64,5 @@ Line Descriptions
 
 .. _dcip_input_fwd_ln6:
 
-    - **Active Topography Cells:** Here, the user can choose to specify the cells which lie below the surface topography. To do this, the user may supply the file path to an active cells model file or type "ALL_ACTIVE". The active cells model has values 1 for cells lying below the surface topography and values 0 for cells lying above.
+    - **Active Topography Cells:** Here, the user can choose to specify the cells which lie below the surface topography. To do this, the user may supply the file path to an active cells model file or type *ALL_ACTIVE*. The active cells model has values 1 for cells lying below the surface topography and values 0 for cells lying above.
 
