@@ -2,6 +2,6 @@
 1000 1000 1000 0                  ! x_pad y_pad down_pad up_pad
 600 120 0                         ! depth_core depth_core2 depth_core3
 4 2 2                             ! n1 n2 n3
-ONLY_LOC LOC_XYZ survey.loc       ! [ONLY_LOC] LOC_XY|LOC_XYZ survey file
+ONLY_LOC LOC_XY survey_xy.loc     ! [ONLY_LOC] LOC_XY|LOC_XYZ survey file
 topo.xyz                          ! NO_TOPO | TOPO_CONST val | topo_file
 MAKE_POLYGON 300                  ! MAKE_POLYGON val | poly_file

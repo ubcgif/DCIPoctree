@@ -56,16 +56,24 @@ Line Descriptions
 
 .. _dcip_input_octreeln5:
 
-    - **locFile:** This line defines the electrode locations. The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*.
+    - **locFile:** The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*. This line defines the electrode locations using a :ref:`survey file <surveyFile>` or an :ref:`observations file <obsFile>`.
 
-        - *ONLY_LOC:* If you are using a :ref:`survey file <surveyFile>` , then you must begin this line with the *ONLY_LOC* flag. If you are using a :ref:`observations file <obsFile>` , this first flag is not required.
-        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the code will project the electrodes to the discrete surface topography. If the flag *NO_TOPO* the *topoFile* line, the electrodes are located a the top of the mesh. For general formatted files, use the flag *LOC_XYZ* and the true xyz electrode locations are preserved.
-        - *filepath:* This is the filepath to the survey/observations file. 
-    
+        - *ONLY_LOC:* If you are using a survey file, then you must begin this line with the *ONLY_LOC* flag. If you are using an observations file, this flag is omitted.
+
+        - *LOC_XY|LOC_XYZ:*
+
+            - Use the flag *LOC_XY* for surface formatted survey files. The code will output a file 'data_Z.txt', where elevation columns have been added assuming the electrodes live on the discretize surface topography.
+            - Use the flag *LOC_XYZ* for general formatted survey files. In the file 'data_Z.txt' output by the code, any electrodes that were above the discrete surface topography are projected to the discrete surface. And all other electrodes are left in their original locations.
+
+        - *filepath:* This is the filepath to the survey/observations file.
 
 .. _dcip_input_octreeln6:
 
-    - **topoFile:** If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format. In the case of flat topography, the user instead enter *TOPO_CONST*, followed by a space, then the elevation of the surface topography; for example *TOPO_CONST 125.5*. For a flat topography at 0, use the flag *NO_TOPO*.
+    - **topoFile:**
+
+        - If a topography file is available, the file path to the topography file is entered; see :ref:`topography file<topoFile>` for format.
+        - In the case of flat topography, the user instead enter *TOPO_CONST*, followed by a space, then the elevation of the surface topography; for example *TOPO_CONST 125.5*.
+        - If you want all electrodes placed at the top of the mesh with flat topography, use the flag *NO_TOPO*.
 
 
 .. _dcip_input_octreeln7:

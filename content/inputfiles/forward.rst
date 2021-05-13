@@ -49,10 +49,10 @@ Line Descriptions
 
 .. _dcip_input_fwd_ln3:
 
-    - **Survey File:** On this line, we enter a flag *LOC_XY* or *LOC_XYZ*, followed by the file path to the :ref:`survey file<surveyFile>`. The flag tells the program whether the electrodes are only on the surface or whether there are borehole measurements.
+    - **Survey File:** On this line, we enter a flag *LOC_XY* or *LOC_XYZ*, followed by the file path to the :ref:`survey file<surveyFile>`. The flag tells the program whether the electrodes should be projected to the discrete surface or modeled in their current locations.
 
-    	- *LOC_XY filepath:* The electrodes are all projected to the discrete surface topograpy. If *Active Topography Cells* line is set to *ALL_ACTIVE*, the electrodes are placed on the top of the mesh.
-        - *LOC_XYZ filepath:* Electrodes remain at the exact xyz locations in the survey file. Necessary for borehole survey.
+    	- *LOC_XY filepath:* The electrodes are all projected to the discrete surface topograpy. If *Active Topography Cells* line is set to *ALL_ACTIVE*, the electrodes are placed on the top of the mesh. The predicted data files output by the code will be in 'general format'; i.e. they will contain the elevations of the electrodes.
+        - *LOC_XYZ filepath:* Electrodes remain at the exact xyz locations defined in the survey file. Necessary for borehole survey. Make sure you have run the :ref:`surface electrodes executable <dcip_surface_electrodes>` on your original data file to ensure none of the electrodes are modeled as living above the discrete surface topography. Or you can use the file 'data_Z.txt' that is output when generating the octree mesh.
 
 .. _dcip_input_fwd_ln4:
 

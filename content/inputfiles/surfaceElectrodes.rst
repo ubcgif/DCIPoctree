@@ -3,7 +3,12 @@
 Project Electrodes to Surface
 =============================
 
-The parameters used to convert a surface formatted data to general format with electrodes placed on the discrete topography are defined in the following input file. The lines within the input file are as follows:
+The executable **surface_electrodes.exe** is used for one of two reasons:
+
+    1. You have a 'surface formatted' survey/observations file and you want to convert it to 'general format' with all electrodes location on the discretized surface topography.
+    2. You have a 'general formatted' survey/observations file with electrodes on the true topography, and you need to project surface electrodes to live on the discretized surface topography.
+
+The input file containing the input parameters for this executables is formatted as follows:
 
 
 .. tabularcolumns:: |L|C|C|
@@ -43,10 +48,15 @@ Line Descriptions
 
 .. _dcip_input_surf_ln3:
 
-    - **Survey/Observations File:** This line defines the electrode locations. The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*.
+    - **Survey/Observations File:** The general syntax is *[ONLY_LOC] LOC_XY|LOC_XYZ filepath*. This line defines the electrode locations using a :ref:`survey file <surveyFile>` or an :ref:`observations file <obsFile>`.
 
-        - *ONLY_LOC:* If you are using a :ref:`survey file <surveyFile>` , then you must begin this line with the *ONLY_LOC* flag. If you are using a :ref:`observations file <obsFile>` , this first flag is not required.
-        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY*. For general formatted files, use the flag *LOC_XYZ*.
+        - *ONLY_LOC:* If you are using a survey file, then you must begin this line with the *ONLY_LOC* flag. If you are using an observations file, this flag is omitted.
+
+        - *LOC_XY|LOC_XYZ:*
+
+            - Use the flag *LOC_XY* for surface formatted survey/observations files. The code will output a file where elevation columns have been added assuming the electrodes live on the discretize surface topography.
+            - Use the flag *LOC_XYZ* for general formatted survey/observations files. In the file output by the code, any electrodes that were above the discrete surface topography are projected to the discrete surface. And all other electrodes are left in their original locations.
+
         - *filepath:* This is the filepath to the survey/observations file.
 
 .. _dcip_input_surf_ln4:
