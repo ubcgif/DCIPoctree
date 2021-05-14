@@ -19,7 +19,7 @@ Here, the code **dcsensitivity.exe** and the input file **dcsens.inp** (:ref:`se
 
 To compute the sensitivities, the following input file was used:
 
-.. figure:: images/dcsens_input.PNG
+.. figure:: images/dcsens_input.png
      :align: center
      :width: 700
 

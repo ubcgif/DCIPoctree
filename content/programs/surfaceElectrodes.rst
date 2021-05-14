@@ -12,7 +12,7 @@ Parameters necessary for defining the OcTree mesh are set in the :ref:`input fil
 
 To generate a survey/observations file with electrodes on the discrete surface topography, open a command window. Next, type the path to the code **surface_electrodes.exe**, followed by a space, followed by the path to the input file.
 
-.. figure:: images/run_surface_electrodes.PNG
+.. figure:: images/run_surface_electrodes.png
      :align: center
      :width: 700
 
