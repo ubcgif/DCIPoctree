@@ -10,13 +10,13 @@ Here, the utility code **interface_weights.exe** and the input file **interface_
 
 Files relevant to this part of the example are in the sub-folder *interface_weights*. Before running this example, you may want to do the following:
 
-	- `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example_surface.zip>`__ (if not done already)
-	- :ref:`Learn how to run code from command line <dcip_interface_weights>`
-	- :ref:`Learn the format of the input file <dcip_input_face_weights>`
+    - `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example_surface.zip>`__ (if not done already)
+    - :ref:`Learn how to run code from command line <dcip_interface_weights>`
+    - :ref:`Learn the format of the input file <dcip_input_face_weights>`
 
 To generate the interface weights, the following input file was used:
 
-.. figure:: ../inputfiles/images/interface_weights_input.png
+.. figure:: ../inputfiles/images/create_interface_weights_input.png
      :align: center
      :width: 700
 

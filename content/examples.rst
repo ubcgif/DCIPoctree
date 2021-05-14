@@ -55,5 +55,6 @@ The full examples are parse into 6 sections:
     Construct octree model <example_general/create_model>
     Forward modeling <example_general/fwd>
     Interface weights <example_general/interface_weights>
+    Project Electrodes to Surface <example_general/surface_electrodes>
     DC Inversion <example_general/dcinv>
     IP Inversion <example_general/ipinv>

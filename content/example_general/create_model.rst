@@ -3,7 +3,7 @@
 Create Model
 ============
 
-Here, the code **blk3cellOct.exe** is used to create both a conductivity and an intrinsic chargeability model on the OcTree mesh. For this example, we use the mesh that was created in the example ":ref:`create OcTree mesh<example_octree>`". Files relevant to this part of the example are in the sub-folder *octree_model*. Before running this example, you may want to do the following:
+Here, the code **blk3cellOct.exe** is used to create both a conductivity and an intrinsic chargeability model on the OcTree mesh. For this example, we use the mesh that was created in the example ":ref:`create OcTree mesh<example_octree_general>`". Files relevant to this part of the example are in the sub-folder *octree_model*. Before running this example, you may want to do the following:
 
 	- `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example_general.zip>`__ (if not done already)
 	- Learn how to run :ref:`blk3cellOct<dcip_model>`
@@ -15,7 +15,7 @@ Here, the code **blk3cellOct.exe** is used to create both a conductivity and an 
 
 **Conductivity model:** Here is the input file used to construct the conductivity model (**blk3cellOct_con.inp**)
 
-.. figure:: ../inputfiles/images/create_blk3cellOct_input_con.png
+.. figure:: images/blk3cellOct_con_input.png
      :align: center
      :width: 700
 
@@ -30,7 +30,7 @@ The resulting Octree model shows a more conductive block (:math:`\sigma` = 0.1 S
 
 **Chargeability model:** Here is the input file used to construct the chargeability model (**blk3cellOct_chg.inp**)
 
-.. figure:: ../inputfiles/images/create_blk3cellOct_input_chg.png
+.. figure:: images/blk3cellOct_chg_input.png
      :align: center
      :width: 700
 

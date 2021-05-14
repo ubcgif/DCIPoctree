@@ -1,6 +1,0 @@
-octree_mesh.txt              ! octree mesh
-LOC_XYZ data.ip              ! [ONLY_LOC] LOC_XY|LOC_XYZ obsfile
-VALUE 0.01                   ! conductivity model | VALUE val
-active_cells_topo.txt        ! topography active model | ALL_ACTIVE
-20                           ! nSamples
-5                            ! method for computing sensitivities

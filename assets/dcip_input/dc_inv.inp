@@ -1,17 +1,17 @@
 octree_mesh.txt             ! octree mesh
-LOC_XYZ data.dc             ! LOC_XY|LOC_XYZ filename
+LOC_XY dc_data.dobs         ! LOC_XY|LOC_XYZ filename
 VALUE 0.01                  ! initial model
 VALUE 0.01                  ! reference model
 active_cells_topo.txt       ! active topography cells | ALL_ACTIVE
 active_cells_topo.txt       ! active model cells | ALL_ACTIVE
-NO_WEIGHT                   ! cell weights | NO_WEIGHT
+dcweights.txt               ! cell weights | NO_WEIGHT
 interface_weights.txt       ! interface weights | NO_FACE_WEIGHT
 NO_WEIGHT                   ! additional smallness weights | NO_WEIGHT
-1 1e-5 0.5                  ! DEFAULT | beta_max beta_min beta_factor
-1e-8 1 1 1                  ! as ax ay az
-0.25                        ! chi factor
+1 1e-5 0.4                  ! DEFAULT | beta_max beta_min beta_factor
+1e-4 1 1 1                  ! as ax ay az
+0.1                         ! chi factor
 1.e-2  1.e-3  2             ! tol_nl mindm iter_per_beta
 1.e-2  20                   ! tol_ipcg max_iter_ipcg
-CHANGE_MREF                 ! CHANGE_MREF | NO_CHANGE_MREF
+NOT_CHANGE_MREF             ! CHANGE_MREF | NOT_CHANGE_MREF
 SMOOTH_MOD_DIF              ! SMOOTH_MOD | SMOOTH_MOD_DIF
 BOUNDS_NONE                 ! BOUNDS_NONE | BOUNDS_CONST bl bu | BOUNDS_FILE filename

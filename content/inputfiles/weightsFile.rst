@@ -26,12 +26,6 @@ The parameters used to create cell weights are defined in the input file. The li
 +--------+----------------------------------------------------+--------------------------------------------------------------------------------------+
 
 
-.. figure:: images/interface_weights_input.png
-     :align: center
-     :width: 700
-
-     Example input file for creating interface weights (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/interface_weights.inp>`__ ).
-
 
 .. _dcip_input_weights_lines:
 
@@ -90,11 +84,11 @@ The parameters used to create interface weights are defined in the input file. T
 +--------+---------------------------------------------------------+--------------------------------------------------------------------------------------+
 
 
-.. figure:: images/interface_weights_input.png
+.. figure:: images/create_interface_weights_input.png
      :align: center
      :width: 700
 
-     Example input file for creating interface weights.
+     Example input file for creating interface weights (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/interface_weights.inp>`__ ).
 
 
 .. _dcip_input_face_weights_lines:

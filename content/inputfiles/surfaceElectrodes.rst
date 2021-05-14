@@ -26,14 +26,14 @@ The input file containing the input parameters for this executables is formatted
 +--------+------------------------------------------------------+--------------------------------------------------------------------------------------+
 
 
-.. figure:: images/surface_electrodes_input.png
+.. figure:: images/create_surface_electrodes_input.png
      :align: center
      :width: 700
 
      Example input file (`Download <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcip_input/surface_electrodes.inp>`__ ).
 
 
-.. _dcip_input_weights_lines:
+.. _dcip_input_surf_lines:
 
 Line Descriptions
 ^^^^^^^^^^^^^^^^^

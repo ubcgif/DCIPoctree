@@ -16,7 +16,7 @@ Files relevant to this part of the example are in the sub-folder *interface_weig
 
 To generate the interface weights, the following input file was used:
 
-.. figure:: ../inputfiles/images/interface_weights_input.png
+.. figure:: ../inputfiles/images/create_interface_weights_input.png
      :align: center
      :width: 700
 

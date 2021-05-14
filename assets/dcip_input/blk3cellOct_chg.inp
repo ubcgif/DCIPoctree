@@ -2,4 +2,4 @@ octree_mesh.txt                        ! octree_mesh
 true_model.chg                         ! output model name
 0                                      ! background value
 1                                      ! number of blocks
--540 -240 -600 600 -150 -450 0.1       ! x1 x2 y1 y2 z1 z2 val
+-550 -250 -600 600 -150 -450 0.1       ! x1 x2 y1 y2 z1 z2 val

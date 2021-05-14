@@ -1,4 +1,4 @@
-30 30 30                          ! dx dy dz
+25 25 25                          ! dx dy dz
 1000 1000 1000 0                  ! x_pad y_pad down_pad up_pad
 600 120 0                         ! depth_core depth_core2 depth_core3
 4 2 2                             ! n1 n2 n3

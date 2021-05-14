@@ -3,7 +3,7 @@
 Forward Modeling
 ================
 
-Here, the code **dcipoctree_fwd.exe** and the input file **dcip_fwd.inp** (:ref:`see format <dcip_input_fwd>`) are used to forward model DC and IP data along 9 pole-dipole profile lines oriented West to East. Files relevant to this part of the example are in the sub-folder *fwd*. For this example, we use the models that were created in the example ":ref:`create model<example_model>`". Before running this example, you may want to do the following:
+Here, the code **dcipoctree_fwd.exe** and the input file **dcip_fwd.inp** (:ref:`see format <dcip_input_fwd>`) are used to forward model DC and IP data along 9 pole-dipole profile lines oriented West to East. Files relevant to this part of the example are in the sub-folder *fwd*. For this example, we use the models that were created in the example ":ref:`create model<example_model_general>`". Before running this example, you may want to do the following:
 
 	- `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example_general.zip>`__ (if not done already)
 	- :ref:`Learn how to run code from command line <dcip_fwd>`
