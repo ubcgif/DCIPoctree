@@ -3,27 +3,27 @@
 Predicted Data File
 ===================
 
-Predicted data files are output by the code **dcipoctree_fwd.exe**. If DC data are being simulated, then a *data_dc.txt* file is output. If IP data are being simulated, then both a *data_dc.txt* and *data_ip.txt* file are output. The format of these files are the same, except for the data columns.
+Predicted data files are output by the code **dcipoctree_fwd.exe** , **dcoctree_inv.exe** and **ipoctree_inv.exe** . If DC data are being forward modeled, then a *data_dc.txt* file is output. If IP data are being forward modeled then both a *data_dc.txt* and *data_ip.txt* file are output. The format of these files are the same, except for the data columns.
 
 The general format for predicted data files is shown below.
 
-.. note:: The *[   ]* brackets are used for columns are not always required. For example, the *Z* value for surface data with flat topography.
+.. note:: Unlike for the :ref:`survey file <surveyFile>` and :ref:`observations file <obsFile>`, **the Z values are included in the predicted data file regardless of whether surface or general format is used** .
 
 
 |
-| :math:`\;\;\;X_A(1) \;\;\;\;\;\;\;\;\; Y_A(1) \;\;\;\;\;\;\;\;\, [Z_A(1)] \;\;\;\;\;\;\;\; X_B(1) \;\;\;\;\;\;\;\; Y_B(1) \;\;\;\;\;\;\;\;\; [Z_B(1)] \;\;\;\;\;\;\;\;\;\;\; N`
-| :math:`\;X_M(1,1) \;\;\;\; Y_M(1,1) \;\;\;\;\, [Z_M(1,1)] \;\;\;\;\, X_N(1,1) \;\;\;\;\, Y_N(1,1) \;\;\;\;\, [Z_N(1,1)] \;\;\;\; DATA(1,1)`
-| :math:`\;X_M(1,2) \;\;\;\; Y_M(1,2) \;\;\;\;\, [Z_M(1,2)] \;\;\;\;\, X_N(1,2) \;\;\;\;\, Y_N(1,2) \;\;\;\;\, [Z_N(1,2)] \;\;\;\; DATA(1,2)`
-| :math:`\;X_M(1,3) \;\;\;\; Y_M(1,3) \;\;\;\;\, [Z_M(1,3)] \;\;\;\;\, X_N(1,3) \;\;\;\;\, Y_N(1,3) \;\;\;\;\, [Z_N(1,3)] \;\;\;\; DATA(1,3)`
+| :math:`\;\;\;X_A(1) \;\;\;\;\;\;\;\;\; Y_A(1) \;\;\;\;\;\;\;\;\, Z_A(1) \;\;\;\;\;\;\;\; X_B(1) \;\;\;\;\;\;\;\; Y_B(1) \;\;\;\;\;\;\;\;\; Z_B(1) \;\;\;\;\;\;\;\;\;\;\; N`
+| :math:`\;X_M(1,1) \;\;\;\; Y_M(1,1) \;\;\;\;\, Z_M(1,1) \;\;\;\;\, X_N(1,1) \;\;\;\;\, Y_N(1,1) \;\;\;\;\, Z_N(1,1) \;\;\;\; DATA(1,1)`
+| :math:`\;X_M(1,2) \;\;\;\; Y_M(1,2) \;\;\;\;\, Z_M(1,2) \;\;\;\;\, X_N(1,2) \;\;\;\;\, Y_N(1,2) \;\;\;\;\, Z_N(1,2) \;\;\;\; DATA(1,2)`
+| :math:`\;X_M(1,3) \;\;\;\; Y_M(1,3) \;\;\;\;\, Z_M(1,3) \;\;\;\;\, X_N(1,3) \;\;\;\;\, Y_N(1,3) \;\;\;\;\, Z_N(1,3) \;\;\;\; DATA(1,3)`
 | :math:`\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots`
-| :math:`X_M(1,N) \;\;\; Y_M(1,N) \;\;\; [Z_M(1,N)] \;\;\; X_N(1,N) \;\;\; Y_N(1,N) \;\;\; [Z_N(1,N)] \;\;\; DATA(1,N)`
+| :math:`X_M(1,N) \;\;\; Y_M(1,N) \;\;\; Z_M(1,N) \;\;\; X_N(1,N) \;\;\; Y_N(1,N) \;\;\; Z_N(1,N) \;\;\; DATA(1,N)`
 |
-| :math:`\;\;\;X_A(2) \;\;\;\;\;\;\;\;\; Y_A(2) \;\;\;\;\;\;\;\;\, [Z_A(2)] \;\;\;\;\;\;\;\; X_B(2) \;\;\;\;\;\;\;\; Y_B(2) \;\;\;\;\;\;\;\;\; [Z_B(2)] \;\;\;\;\;\;\;\;\;\;\; N`
-| :math:`\;X_M(2,2) \;\;\;\; Y_M(2,2) \;\;\;\;\, [Z_M(2,2)] \;\;\;\;\, X_N(2,2) \;\;\;\;\, Y_N(2,2) \;\;\;\;\, [Z_N(2,2)] \;\;\;\; DATA(2,2)`
-| :math:`\;X_M(2,1) \;\;\;\; Y_M(2,1) \;\;\;\;\, [Z_M(2,1)] \;\;\;\;\, X_N(2,1) \;\;\;\;\, Y_N(2,1) \;\;\;\;\, [Z_N(2,1)] \;\;\;\; DATA(2,1)`
-| :math:`\;X_M(2,3) \;\;\;\; Y_M(2,3) \;\;\;\;\, [Z_M(2,3)] \;\;\;\;\, X_N(2,3) \;\;\;\;\, Y_N(2,3) \;\;\;\;\, [Z_N(2,3)] \;\;\;\; DATA(2,3)`
+| :math:`\;\;\;X_A(2) \;\;\;\;\;\;\;\;\; Y_A(2) \;\;\;\;\;\;\;\;\, Z_A(2) \;\;\;\;\;\;\;\; X_B(2) \;\;\;\;\;\;\;\; Y_B(2) \;\;\;\;\;\;\;\;\; Z_B(2) \;\;\;\;\;\;\;\;\;\;\; N`
+| :math:`\;X_M(2,2) \;\;\;\; Y_M(2,2) \;\;\;\;\, Z_M(2,2) \;\;\;\;\, X_N(2,2) \;\;\;\;\, Y_N(2,2) \;\;\;\;\, Z_N(2,2) \;\;\;\; DATA(2,2)`
+| :math:`\;X_M(2,1) \;\;\;\; Y_M(2,1) \;\;\;\;\, Z_M(2,1) \;\;\;\;\, X_N(2,1) \;\;\;\;\, Y_N(2,1) \;\;\;\;\, Z_N(2,1) \;\;\;\; DATA(2,1)`
+| :math:`\;X_M(2,3) \;\;\;\; Y_M(2,3) \;\;\;\;\, Z_M(2,3) \;\;\;\;\, X_N(2,3) \;\;\;\;\, Y_N(2,3) \;\;\;\;\, Z_N(2,3) \;\;\;\; DATA(2,3)`
 | :math:`\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots`
-| :math:`X_M(2,N) \;\;\; Y_M(2,N) \;\;\; [Z_M(2,N)] \;\;\; X_N(2,N) \;\;\; Y_N(2,N) \;\;\; [Z_N(2,N)] \;\;\; DATA(2,N)`
+| :math:`X_M(2,N) \;\;\; Y_M(2,N) \;\;\; Z_M(2,N) \;\;\; X_N(2,N) \;\;\; Y_N(2,N) \;\;\; Z_N(2,N) \;\;\; DATA(2,N)`
 |
 | :math:`\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots`
 | :math:`\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots`
@@ -33,48 +33,30 @@ The general format for predicted data files is shown below.
 
 where
 
-    - :math:`X_A(i) \;\;\; Y_A(i) \;\;\; [Z_A(i)]` is the Easting, Northing and vertical (if needed) position of the A-electrode for source :math:`i`.
-    - :math:`X_B(i) \;\;\; Y_B(i) \;\;\; [Z_B(i)]` is the Easting, Northing and vertical (if needed) position of the B-electrode for source :math:`i`.
-    - :math:`X_M(i,j) \;\;\; Y_M(i,j) \;\;\; [Z_M(i,j)]` is the Easting, Northing and vertical (if needed) position of M-electrode associated with source :math:`i` and receiver :math:`j`.
-    - :math:`X_N(i,j) \;\;\; Y_N(i,j) \;\;\; [Z_N(i,j)]` is the Easting, Northing and vertical (if needed) position of N-electrode associated with source :math:`i` and receiver :math:`j`.
+    - :math:`X_A(i) \;\;\; Y_A(i) \;\;\; Z_A(i)` is the Easting, Northing and vertical position of the A-electrode for source :math:`i`.
+    - :math:`X_B(i) \;\;\; Y_B(i) \;\;\; Z_B(i)` is the Easting, Northing and vertical position of the B-electrode for source :math:`i`.
+    - :math:`X_M(i,j) \;\;\; Y_M(i,j) \;\;\; Z_M(i,j)` is the Easting, Northing and vertical position of M-electrode associated with source :math:`i` and receiver :math:`j`.
+    - :math:`X_N(i,j) \;\;\; Y_N(i,j) \;\;\; Z_N(i,j)` is the Easting, Northing and vertical position of N-electrode associated with source :math:`i` and receiver :math:`j`.
     - :math:`DATA(i,j)` is the datum associated with the :math:`i^{th}` source and :math:`j^{th}` receiver.
 
         - For DC data, :math:`DATA(i,j)` represents a normalized voltage value followed by an apparent resistivity value.
         - For IP data, :math:`DATA(i,j)` represents the IP data value defined in the input file (see :ref:`line 1 <dcip_input_fwd>`).
 
 
-Example 1: Dipole-Dipole Surface Data
--------------------------------------
 
-For electrodes defined only on the surface, the vertical location is determined by the topography. As a result, columns for the vertical position of each electrode are not required. Below, we see the format for *data_dc.txt* and *data_ip.txt*. In this case, there are two sources, each with a different number of receivers.
+Example: Pole-Dipole Data
+-------------------------
 
-**Predicted Surface DC Data**
+Below, we see the format for *data_dc.txt* and *data_ip.txt*. Since the sources are pole sources, we see that the locations of the A and B electrodes are identical. If the receivers were poles, the M and N locations of corresponding M and N electrodes would be identical.
 
-.. figure:: images/dpred_dipole_dipole_XY_dc.PNG
-    :align: center
-    :figwidth: 75%
-
-
-**Predicted Surface IP Data**
-
-.. figure:: images/dpred_dipole_dipole_XY_ip.PNG
-    :align: center
-    :figwidth: 65%
-
-
-Example 2: Pole-Dipole Data with General Format
------------------------------------------------
-
-For the general data format (surface and/or borehole), the vertical locations of the electrodes are defined. Below, we see the format for *data_dc.txt* and *data_ip.txt*. Since the sources are pole sources, we see that the locations of the A and B electrodes are identical. If the receivers were poles, the M and N locations of corresponding M and N electrodes would be identical.
-
-**General Format Predicted DC Data**
+**Predicted DC Data**
 
 .. figure:: images/dpred_pole_dipole_XYZ_dc.PNG
     :align: center
     :figwidth: 95%
 
 
-**General Format Predicted IP Data**
+**Predicted IP Data**
 
 .. figure:: images/dpred_pole_dipole_XYZ_ip.PNG
     :align: center

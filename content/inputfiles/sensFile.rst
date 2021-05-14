@@ -50,7 +50,7 @@ Line Descriptions
 
     - **Survey File:** This line defines the survey file. The general syntax is *LOC_XY|LOC_XYZ filepath*.
 
-        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the program will project the electrode locations to the discrete surface topography. For general formatted file, use the flag *LOC_XYZ* and the exact XYZ locations will be preserved.
+        - *LOC_XY|LOC_XYZ:* For surface formatted files, use the flag *LOC_XY* and the program will project the electrode locations to the discrete surface topography. For general formatted file, use the flag *LOC_XYZ*.
         - *filepath:* This is the filepath to the survey/observations file. If the file is DC data format, you will compute sensitivities for the DC inversion. If the file is IP format, you will compute sensitivities for the IP inversion.
 
 .. _dcip_sens_ln3:
@@ -66,15 +66,20 @@ Line Descriptions
 
 .. _dcip_sens_ln5:
 
-    - **# Samples:** This is the number of samples used to approximate the sensitivities. Somewhere between 5 and 20 samples are generally needed. A reasonable default value is 10. For more, see :ref:`theory section <theory_sensitivity_weights>` .
+    - **# Samples:** This is the number of samples used to approximate the sensitivities. Somewhere between 5 and 20 samples are generally needed. A reasonable default value is 10. For more, see :ref:`theory section <theory_sensitivity_weights>` . *Ignored if the method for computing sensitivities is an analytic method* .
 
 .. _dcip_sens_ln6:
 
-    - **Method:** The method for approximating the sensitivity weights. The user enters a flag value of *1*, *2* or *3*:
+    - **Method:** The method for approximating the average or root mean squared sensitivities. The user enters an integer from 1 to 5:
 
-        - (1) Hutchinson approach with :math:`v = \pm 1`
-        - (2) Hutchinson approach with :math:`-1 < v < 1`
-        - (3) Probing method
+        - (1) RMS sensitivities approximated using Hutchinson approach (:math:`v = \pm 1`)
+        - (2) RMS sensitivities approximated using Hutchinson approach (:math:`-1 < v < 1`)
+        - (3) RMS sensitivities approximated using Probing method
+        - (4) Analytic average sensitivities
+        - (5) Analytic RMS sensitivities
+
+
+.. note:: Sensitivities computed analytically are much better for creating sensitivity weights. For reasonably sized problems, the time required to compute analytic sensitivities is comparable to the time required for any of the approximate methods.
 
 
 Sensitivities to Weights
@@ -135,7 +140,7 @@ Line Descriptions
 
 .. _dcip_sens2weights_ln5:
 
-    - **Smoothing Factor:** The distribution of sensitivities is very rough and can introduce artifacts in the inversion. To counteract this, the user may apply a smoothing filter. The smoothing factor is an integer value and denotes how many times the smoothing is applied. *A value between 1-4 seems to work best*.
+    - **Smoothing Factor:** The distribution of sensitivities is very rough when approximated with Hutchinson's or the probing methods, and may introduce artifacts in the inversion. To counteract this, the user may apply a smoothing filter. The smoothing factor is an integer value and denotes how many times the smoothing is applied. *A value between 1-4 seems to work best when Hutchinson's or probing methods were used to approximate the sensitivities. If the analytic average or RMS sensitivities were computed, this can be set to 0 or 1* .
 
 
 .. _dcip_sens2weights_ln6:

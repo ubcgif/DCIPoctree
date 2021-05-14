@@ -18,13 +18,13 @@ Here, the program libraries for DCIP octree will be used to:
 Surface Data Example
 --------------------
 
-In this example, we simulate and invert DC/IP data with survey/observations files that are in 'surface format'. That is, electrode elevation columns are not included in the survey/observations files and we assume all electrodes live on the discretize surface topograpy.
+In this example, we simulate and invert DC/IP data with survey/observations files that are in **surface format** . That is, electrode elevations are not included in the survey/observations files and we assume all electrodes live on the discretize surface topograpy.
 
 Zip folders containing all necessary files can be downloaded here:
 
     - `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example_surface.zip>`__
 
-The full examples are parse into 6 sections:
+The full example is parse into 6 sections:
 
 .. toctree::
     :maxdepth: 2
@@ -40,13 +40,13 @@ The full examples are parse into 6 sections:
 General Data Example
 --------------------
 
-In this example, we simulate and invert DC/IP data with survey/observations files that are in 'general format'. That is, columns for the electrode elevations are included in the survey/observations files. However, we must ensure an electrodes located above the discrete surface topograpy are projected to the discrete surface so they are not modeled as living in the air.
+In this example, we simulate and invert DC/IP data with survey/observations files that are in **general format** . That is, elevations are included in the survey/observations files. However, we must ensure that any electrodes located within air cells are projected to the discrete surface so they are not modeled as living in the air.
 
 Zip folders containing all necessary files can be downloaded here:
 
     - `Download and open the zip folder containing the entire DCIP octree example <https://github.com/ubcgif/DCIPoctree/raw/master/assets/dcipoctree_example.zip>`__
 
-The full examples are parse into 6 sections:
+The full example is parsed into 7 sections:
 
 .. toctree::
     :maxdepth: 2

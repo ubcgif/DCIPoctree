@@ -6,7 +6,7 @@ Interface Weights
 .. important:: Depending on the application, interface weighting may or may not improve the final inversion result.
 
 
-Here, the utility code **interface_weights.exe** and the input file **interface_weights.inp** (:ref:`see format <dcip_input_weights>`) are used to create surface interface weights. Interface weighting is sometimes used to reduce artifacts in the recovered model clustered around the electrode locations. It does this by enforcing stronger lateral smoothing in the top few layers of cells.
+Here, the utility code **interface_weights.exe** and the input file **interface_weights.inp** (:ref:`see format <dcip_input_weights>`) are used to create near-surface interface weights. Interface weighting is sometimes used to reduce artifacts in the recovered model clustered around the electrode locations. It does this by enforcing stronger lateral smoothing in the top few layers of cells which decreases in magnitude with depth.
 
 Files relevant to this part of the example are in the sub-folder *interface_weights*. Before running this example, you may want to do the following:
 

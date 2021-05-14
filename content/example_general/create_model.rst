@@ -10,7 +10,7 @@ Here, the code **blk3cellOct.exe** is used to create both a conductivity and an 
 	- Learn the format of the input files :ref:`blk3cellOct.inp<dcip_input_model>`
 
 
-.. important:: If you have topography, do not worry about defining a value for the air cells. When forward modeling or inverting DC/IP data, the code will use the :ref:`active cells model <activeFile>` to determine which cells are in the air and assign an appropriate value.
+.. important:: If you have topography, do not worry about defining the air cells. When forward modeling or inverting DC/IP data, the code will use the :ref:`active cells model <activeFile>` to determine which cells are in the air and assign an appropriate value.
 
 
 **Conductivity model:** Here is the input file used to construct the conductivity model (**blk3cellOct_con.inp**)

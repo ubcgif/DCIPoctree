@@ -5,7 +5,7 @@ Survey File
 
 Survey files provide the survey information for predicting data with **dcipoctree_fwd.exe**. Whether DC and/or IP are being simulated, the format is the same. The general format for predicted data files is shown below.
 
-.. note:: The *[   ]* brackets are used for columns are not always required. For example, the *Z* value for surface data with flat topography.
+.. note:: The *[   ]* brackets are used for columns are not always required. For **surface formatted** files, the Z values are omitted. For **general formatted** files, the Z values must be included.
 
 
 |

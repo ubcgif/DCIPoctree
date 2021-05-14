@@ -3,7 +3,9 @@
 Project to Discrete Surface
 ===========================
 
-Here, the executable **surface_electrodes.txt** is used to project surface electrodes in general formatted DC/IP files to the discrete surface topography. When supplied with a general formatted survey/observations file, this step is carried out to ensure surface electrodes are not modeled as living above the discrete surface topography. For original survey files **dc_data.dobs** and **ip_data.dobs**, we will create observations files **dc_data_projected.dobs** and **ip_data_projected.dobs**. The projected data files are necessary for constructing sensitivity weights and performing the inversion. 
+.. note:: **create_octree_mesh_dcip.exe** also outputs a file **data_Z.txt** in which all electrodes located within air cells are projected to the discrete surface. However this tool is useful when you have DC and IP data you want to invert on the same mesh.
+
+Here, the executable **surface_electrodes.txt** is used to project any electrodes living in air cells to the discrete surface topography defined by the mesh and active cells model. When supplied with a general formatted survey/observations file, this step is vital. For original survey files **dc_data.dobs** and **ip_data.dobs**, we will create observations files **dc_data_projected.dobs** and **ip_data_projected.dobs**. The projected data files are necessary for constructing sensitivity weights and performing the inversion.
 
 Files relevant to this part of the example are in the sub-folder *surface_electrodes*. Before running this example, you may want to do the following:
 

@@ -3,7 +3,7 @@
 DC Inversion
 ============
 
-Here, we use **dcsensitivity.exe** and **sens2weights.exe** to compute sensitivity weights for the DC inversion. Then we use the code **dcoctree_inv.exe** to recover a conductivity model. Because this is a simple example with no noise, we assigned a uncertainties of 1e-8 V + 1% to all DC data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion.
+Here, we use **dcsensitivity.exe** and **sens2weights.exe** to compute sensitivity weights for the DC inversion. Then we use the code **dcoctree_inv.exe** to recover a conductivity model. Because this is a simple example with no noise, we assigned uncertainties of 1e-8 V + 1% to all DC data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion.
 
 .. note:: Depending on the application, sensitivity and/or interface weighting may or may not improve the final model. Here we apply the weights to promote familiarity with this code. For this example, the data are very-well constrained by the data and significant weighting may not even be necessary.
 

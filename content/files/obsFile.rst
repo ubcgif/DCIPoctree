@@ -7,7 +7,7 @@ Observations files can be used invert data with **dcoctree_inv.exe** or **ipoctr
 
 The general format for observed data files is shown below.
 
-.. note:: The *[   ]* brackets are used for columns are not always required. For example, the *Z* value for surface data with flat topography.
+.. note:: The *[   ]* brackets are used for columns are not always required. For **surface formatted** files, the Z values are omitted. For **general formatted** files, the Z values must be included.
 
 
 |

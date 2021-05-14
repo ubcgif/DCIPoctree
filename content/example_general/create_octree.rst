@@ -11,7 +11,7 @@ Before running this example, you may want to do the following:
 	- :ref:`Learn how to run code from command line <dcip_octree>`
 	- :ref:`Learn the format of the input file <dcip_input_octree>`
 
-For our example, the :ref:`survey file <surveyFile>` uses the 'general format'. This means the survey file has elevation columns for the electrodes (the example just has columns of zeros). Please we aware that the true electrode locations at the surface may live above the discrete surface topography defined by the mesh and its :ref:`active cells model <activeFile>`. To ensure you do not model any surface electrodes as living in the air, use the **data_Z.txt** file output by **create_octree_mesh_dcip.exe** when doing subsequent forward modeling.
+For our example, the :ref:`survey file <surveyFile>` uses the **general format** . This means the survey file has elevations for the electrodes (the example file just has columns of zeros). Please be aware that the true electrode locations at the surface may live above the discrete surface topography defined by the mesh and its :ref:`active cells model <activeFile>`. To ensure you do not model any surface electrodes as living in the air, use the **data_Z.txt** file output by **create_octree_mesh_dcip.exe** when doing subsequent forward modeling.
 
 To generate the OcTree mesh, the following input file was used:
 

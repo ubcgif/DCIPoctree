@@ -10,7 +10,7 @@ Here, the code **dcipoctree_fwd.exe** and the input file **dcip_fwd.inp** (:ref:
 	- :ref:`Learn the format of the input file <dcip_input_fwd>`
 
 
-To forward model the data, the following input file was used. Because the original survey file (*survey_xyz.loc*) used the general format, we instead define the electrode locations in the forward modeling with **data_Z.txt**. The file **data_Z.txt** was output by **create_octree_mesh_dcip.exe** when creating the mesh and ensures near surface electrode are projected to the discretize surface topography. 
+To forward model the data, the following input file was used. Because the original survey file (**survey_xyz.loc** ) used the general format, we instead define the electrode locations in the forward modeling with **data_Z.txt** . The file **data_Z.txt** was output by **create_octree_mesh_dcip.exe** and projects all electrodes located in air cells to the discretize surface topography. 
 
 .. figure:: images/fwd_input.png
      :align: center

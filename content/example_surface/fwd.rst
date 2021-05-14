@@ -10,7 +10,7 @@ Here, the code **dcipoctree_fwd.exe** and the input file **dcip_fwd.inp** (:ref:
 	- :ref:`Learn the format of the input file <dcip_input_fwd>`
 
 
-To forward model the data, the following input file was used. Because the survey file (*survey_xy.loc*) uses a surface format, the electrodes are automatically placed on the discrete surface topography defined by the :ref:`active cells model <activeFile>`.
+To forward model the data, the following input file was used. Because the survey file (**survey_xy.loc** ) uses a surface format, any electrodes located in air cells are automatically projected to the discrete surface topography defined by the :ref:`active cells model <activeFile>`.
 
 .. figure:: images/fwd_input.png
      :align: center

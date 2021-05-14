@@ -3,9 +3,7 @@
 IP Inversion
 ============
 
-Here, demonstrate how to use **dcsensitivity.exe** and **sens2weights.exe** to compute sensitivity weights for the IP inversion. It should be noted that we have chosen not to include sensitivity weights in the IP inversion example.
-
-We use the code **ipoctree_inv.exe** to recover a chargeability model. Because this is a simple example with no noise, we assigned a uncertainties of 0.0005 to all IP data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion.
+Here, demonstrate how to use **dcsensitivity.exe** and **sens2weights.exe** to compute sensitivity weights for the IP inversion. We then use the code **ipoctree_inv.exe** to recover a chargeability model. Because this is a simple example with no noise, we assigned uncertainties of 0.0005 to all IP data. In practice, data are noisy and choosing appropriate uncertainties is very important for successful inversion.
 
 
 .. note:: Depending on the application, sensitivity and/or interface weighting may or may not improve the final model. We apply the weights to promote familiarity with this code. For this example, the data are very-well constrained by the data and significant weighting may not even be necessary.

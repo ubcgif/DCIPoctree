@@ -5,8 +5,8 @@ Project Electrodes to Surface
 
 The executable **surface_electrodes.exe** is used for one of two reasons:
 
-    1. You have a 'surface formatted' survey/observations file and you want to convert it to 'general format' with all electrodes location on the discretized surface topography.
-    2. You have a 'general formatted' survey/observations file with electrodes on the true topography, and you need to project surface electrodes to live on the discretized surface topography.
+    1. You have a 'surface formatted' :ref:`survey <surveyFile>`/:ref:`observations <obsFile>` file and you want to convert it to 'general format' with all electrodes located on the discretized surface topography.
+    2. You have a 'general formatted' survey/observations file with electrodes on the true topography, and you need to project electrodes in air cells to the discretized surface topography.
 
 The input file containing the input parameters for this executables is formatted as follows:
 

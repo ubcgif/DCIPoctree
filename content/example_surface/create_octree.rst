@@ -11,7 +11,7 @@ Before running this example, you may want to do the following:
 	- :ref:`Learn how to run code from command line <dcip_octree>`
 	- :ref:`Learn the format of the input file <dcip_input_octree>`
 
-For our example, the :ref:`survey file <surveyFile>` uses the 'surface format', which means there are no elevation columns provided for the electrode locations. In this case, we assume all electrodes live on the discrete surface topography that is defined when creating the mesh.
+For our example, the :ref:`survey file <surveyFile>` uses the **surface format** , which means there are no elevations provided for the electrode locations. In this case, we assume all electrodes live on the discrete surface topography that is defined when creating the mesh.
 
 To generate the OcTree mesh, the following input file was used:
 
